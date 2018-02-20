@@ -1,33 +1,37 @@
-﻿using System;
+﻿using BancoUnificadoCore.Shared.Entities;
+using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BancoUnificadoCore.Domain.Entities
 {
-    public class Titulo
+    public class Titulo : Identifier
     {
-        public int TitId { get; set; }
-        public string Protocolo { get; set; }
-        public DateTime DataProtocolo { get; set; }
-        public int Livro { get; set; }
-        public int Folha { get; set; }
-        public DateTime DataProtesto { get; set; }
-        public int NumeroProtesto { get; set; }
-        public DateTime DataEmissao { get; set; }
-        public DateTime DataVencimento { get; set; }
-        public string Especie { get; set; }
-        public int Numero { get; set; }
-        public int NossoNumero { get; set; }
-        public decimal Valor { get; set; }
-        public decimal Saldo { get; set; }
-        public string Endosso { get; set; }
-        public string Aceite { get; set; }
-        public int FinsFalimentares { get; set; }
-        public int MotivoProtesto { get; set; }
-        public int Acao { get; set; }
-        public DateTime DataAcao { get; set; }
-        public int Sequencial { get; set; }
-        public List<Pessoa> pessoa { get; set; }
-        public Apresentante apresentante { get; set; }
+        public Titulo()
+        {
+
+        }
+
+        public string Protocolo { get; private set; }
+        public DateTime DataProtocolo { get; private set; }
+        public int Livro { get; private set; }
+        public int Folha { get; private set; }
+        public DateTime DataProtesto { get; private set; }
+        public int NumeroProtesto { get; private set; }
+        public DateTime DataEmissao { get; private set; }
+        public DateTime DataVencimento { get; private set; }
+        public string Especie { get; private set; }
+        public int Numero { get; private set; }
+        public int NossoNumero { get; private set; }
+        public decimal Valor { get; private set; }
+        public decimal Saldo { get; private set; }
+        public string Endosso { get; private set; }
+        public string Aceite { get; private set; }
+        public bool FinsFalimentares { get; private set; }
+        public int MotivoProtesto { get; private set; }
+        public int Acao { get; private set; }
+        public DateTime DataAcao { get; private set; }
+        public int Sequencial { get; private set; }
+        public List<Pessoa> pessoa { get; private set; }
+        public Apresentante apresentante { get; private set; }
     }
 }

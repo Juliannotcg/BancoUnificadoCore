@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BancoUnificadoCore.Shared.Entities;
 
 namespace BancoUnificadoCore.Domain.Entities
 {
-    public class Cartorio
+    public class Cartorio : Identifier
     {
-        public int CarId { get; set; }
-        public int CodigoCartorio { get; set; }
+        public Cartorio(int codigoCartorio)
+        {
+            CodigoCartorio = codigoCartorio;
+        }
+
+        public int CodigoCartorio { get; private set; }
     }
 }

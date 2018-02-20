@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BancoUnificadoCore.Shared.Entities;
 
 namespace BancoUnificadoCore.Domain.Entities
 {
-    public class Apresentante : Pessoa
+    public class Apresentante : Identifier
     {
-        public int AprId { get; set; }
-        public string CodigoApresentante { get; set; }
+        public string CodigoApresentante { get; private set; }
+        public Pessoa pessoa { get; set; }
     }
 }

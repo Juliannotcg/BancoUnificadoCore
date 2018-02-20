@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BancoUnificadoCore.Domain.Enums;
+using BancoUnificadoCore.Shared.Entities;
 
 namespace BancoUnificadoCore.Domain.Entities
 {
-    public class Envolvido
+    public class Envolvido : Identifier
     {
-        public int EnvId { get; set; }
-        public int TipoEnvolvido { get; set; }
+        public TipoEnvolvido TipoEnvolvido { get; set; }
+        public string NomeEnvolvido { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using BancoUnificadoCore.Shared.Entities;
 
 namespace BancoUnificadoCore.Domain.Entities
 {
-    public class Envolvido : Identifier
+    public class Envolvido : Entity
     {
         public Envolvido(TipoEnvolvido tipoEnvolvido, string nomeEnvolvido)
         {

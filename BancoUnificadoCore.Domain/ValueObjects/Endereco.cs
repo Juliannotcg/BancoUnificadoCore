@@ -2,7 +2,7 @@
 
 namespace BancoUnificadoCore.Domain.Entities
 {
-    public class Endereco : Identifier
+    public class Endereco 
     {
         public Endereco(string logradouro, string bairro, string cidade, string uf, string cep)
         {

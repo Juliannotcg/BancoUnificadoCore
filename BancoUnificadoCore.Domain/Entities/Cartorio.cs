@@ -2,7 +2,7 @@
 
 namespace BancoUnificadoCore.Domain.Entities
 {
-    public class Cartorio : Identifier
+    public class Cartorio : Entity
     {
         public Cartorio(int codigoCartorio)
         {

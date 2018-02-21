@@ -1,11 +1,15 @@
 ﻿using BancoUnificadoCore.Shared.Entities;
+using System;
 
 namespace BancoUnificadoCore.Domain.Entities
 {
-    public class Apresentante : Identifier
+    public class Apresentante : Entity
     {
-        public Apresentante(string codigoApresentante)
+        public Apresentante(){}
+
+        public Apresentante(Guid id,string codigoApresentante)
         {
+            Id = id;
             CodigoApresentante = codigoApresentante;
         }
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BancoUnificadoCore.Domain.Entities
 {
-    public class Titulo : Identifier
+    public class Titulo : Entity
     {
         private List<Pessoa> _Pessoa;
         public Titulo(string protocolo, DateTime dataProtocolo, 
@@ -14,7 +14,7 @@ namespace BancoUnificadoCore.Domain.Entities
             DateTime dataVencimento, string especie, 
             int numero, int nossoNumero, decimal valor, 
             decimal saldo, string endosso, string aceite, 
-            bool finsFalimentares, int motivoProtesto, int acao, DateTime dataAcao, int sequencial)
+            bool finsFalimentares, int motivoProtesto, Acao acao, DateTime dataAcao, int sequencial)
         {
             Protocolo = protocolo;
             DataProtocolo = dataProtocolo;

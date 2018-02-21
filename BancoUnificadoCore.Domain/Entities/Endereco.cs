@@ -4,10 +4,19 @@ namespace BancoUnificadoCore.Domain.Entities
 {
     public class Endereco : Identifier
     {
-        public string Logradouro { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
-        public string Uf { get; set; }
-        public string Cep { get; set; }
+        public Endereco(string logradouro, string bairro, string cidade, string uf, string cep)
+        {
+            Logradouro = logradouro;
+            Bairro = bairro;
+            Cidade = cidade;
+            Uf = uf;
+            Cep = cep;
+        }
+
+        public string Logradouro { get; private set; }
+        public string Bairro { get; private set; }
+        public string Cidade { get; private set; }
+        public string Uf { get; private set; }
+        public string Cep { get; private set; }
     }
 }

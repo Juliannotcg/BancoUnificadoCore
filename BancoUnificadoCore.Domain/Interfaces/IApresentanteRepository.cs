@@ -1,11 +1,12 @@
 ﻿using BancoUnificadoCore.Domain.Entities;
+using BancoUnificadoCore.Domain.Queries;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BancoUnificadoCore.Domain.Interfaces
 {
-    public interface IApresentanteRepository : IRepository<Apresentante>
+    public interface IApresentanteRepository 
     {
+        void Save(Apresentante apresentante);
+        GetApresentanteResult Get(Guid id);
     }
 }

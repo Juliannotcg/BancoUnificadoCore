@@ -1,8 +1,9 @@
-﻿using BancoUnificadoCore.Shared.Entities;
+﻿using BancoUnificadoCore.Shared.ValueObject;
+using Flunt.Validations;
 
 namespace BancoUnificadoCore.Domain.Entities
 {
-    public class Endereco 
+    public class Endereco : ValueObject
     {
         public Endereco(string logradouro, string bairro, string cidade, string uf, string cep)
         {
@@ -11,6 +12,13 @@ namespace BancoUnificadoCore.Domain.Entities
             Cidade = cidade;
             Uf = uf;
             Cep = cep;
+
+            AddNotifications(new Contract()
+                .Requires()
+                .IsNullOrEmpty(Logradouro, "Endereco.Logradouro", "Endereco inválido")
+                .IsNullOrEmpty(Bairro, "Endereco.Bairro", "Bairro inválido")
+                .IsNullOrEmpty(Cidade, "Endereco.Cidade", "Cidade inválida")
+            );
         }
 
         public string Logradouro { get; private set; }

@@ -12,6 +12,8 @@ namespace BancoUnificadoCore.Domain.Entities
             Endereco = endereco;
             TipoDocumento = tipoDocumento;
             Documento = documento;
+
+            AddNotifications(Nome, Endereco);
         }
 
         public Nome Nome { get; private set; }

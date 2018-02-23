@@ -1,7 +1,5 @@
 ﻿using Flunt.Notifications;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BancoUnificadoCore.Shared.Entities
 {

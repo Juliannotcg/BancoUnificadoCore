@@ -1,6 +1,6 @@
 ﻿namespace BancoUnificadoCore.Domain.Enums
 {
-    public enum TipoDocumento
+    public enum ETipoDocumento
     {
         CPF = 1,
         CNPJ = 2

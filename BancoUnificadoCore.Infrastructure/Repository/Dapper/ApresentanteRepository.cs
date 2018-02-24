@@ -34,7 +34,7 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
             {
                 Id = apresentante.Id,
                 FirstName = apresentante.pessoa.Nome.PrimeiroNome,
-                SegundoNome = apresentante.pessoa.Nome.SegundoNome,
+                SegundoNome = apresentante.pessoa.Nome.SobreNome,
                 Documento = apresentante.pessoa.Documento,
                 CodigoApresentane = apresentante.CodigoApresentante
             }, commandType: CommandType.StoredProcedure);

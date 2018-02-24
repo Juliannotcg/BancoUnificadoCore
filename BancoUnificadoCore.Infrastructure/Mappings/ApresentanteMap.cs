@@ -11,7 +11,6 @@ namespace BancoUnificadoCore.Infrastructure.Mappings
     {
         public void Configure(EntityTypeBuilder<Apresentante> builder)
         {
-
             builder.Property(c => c.Id);
 
             builder.Property(c => c.CodigoApresentante)

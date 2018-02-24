@@ -3,6 +3,7 @@
     public enum TipoDocumento
     {
         CPF = 1,
-        CNPJ = 2
+        CNPJ = 2,
+        OUTROS = 3
     }
 }

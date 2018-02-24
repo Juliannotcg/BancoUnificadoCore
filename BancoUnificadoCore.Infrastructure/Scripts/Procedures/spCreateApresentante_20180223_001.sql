@@ -2,7 +2,7 @@ CREATE PROCEDURE spCreateApresentante
     @Id UNIQUEIDENTIFIER,
     @PrimeiroNome VARCHAR(40),
     @SegundoNome VARCHAR(40),
-    @Documento CHAR(11),
+    @Documento INT(11),
     @CodigoApresentante VARCHAR(160)
 AS
     INSERT INTO [Apresentante] (

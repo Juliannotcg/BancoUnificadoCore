@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BancoUnificadoCore.Shared
+﻿namespace BancoUnificadoCore.Shared
 {
     public class Settings
     {
-        public static string ConnectionString = @"Server=.\sqlexpress;Database=baltastore;User ID=baltastore;Password=sqlexpress;";
+        public static string ConnectionString = @"Server=.\sqlexpress;Database=BancoUnificadoCore;User ID=julianno;Password=Garciajtc241188@;";
     }
 }

@@ -41,6 +41,13 @@ namespace BancoUnificadoCore.Domain.Entities
             DataAcao = dataAcao;
             Sequencial = sequencial;
             _Pessoa = new List<Pessoa>();
+
+            AddNotifications(new Contract()
+                .Requires()
+                .IsNullOrEmpty(Protocolo, "Protocolo", "Protocolo inválido")
+                .IsNullOrEmpty(DataProtocolo.ToString(), "DataProtocolo", "Data do protocolo inválida.")
+                .IsFalse(ValidateData(DataProtesto, DataProtocolo), "DataProtesto", "A data do protesto não pode ser menor que a data de apresentação.")
+                );
         }
 
         public string Protocolo { get; private set; }
@@ -69,6 +76,14 @@ namespace BancoUnificadoCore.Domain.Entities
         public void AddPessoa(Pessoa pessoa)
         {
             _Pessoa.Add(pessoa);
+        }
+
+        public bool ValidateData(DateTime DataProtesto, DateTime DataApresentacao)
+        {
+            if (DataProtesto <= DataApresentacao)
+                return false;
+            else
+                return true;
         }
     }
 }

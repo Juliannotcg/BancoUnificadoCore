@@ -1,4 +1,5 @@
 ﻿using BancoUnificadoCore.Shared.Entities;
+using Flunt.Validations;
 using System;
 
 namespace BancoUnificadoCore.Domain.Entities
@@ -11,6 +12,10 @@ namespace BancoUnificadoCore.Domain.Entities
         {
             Id = id;
             CodigoApresentante = codigoApresentante;
+
+            AddNotifications(new Contract()
+                .Requires()
+                .IsNullOrEmpty(CodigoApresentante, "CodigoApresentante", "Código do apresentante inválido."));
         }
 
         public string CodigoApresentante { get; private set; }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BancoUnificadoCore.Domain.Enums
+﻿namespace BancoUnificadoCore.Domain.Enums
 {
     public enum TipoEnvolvido
     {

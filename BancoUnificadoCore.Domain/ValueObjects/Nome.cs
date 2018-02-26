@@ -12,10 +12,10 @@ namespace BancoUnificadoCore.Domain.ValueObjects
 
             AddNotifications(new Contract()
                 .Requires()
-                .HasMinLen(PrimeiroNome, 3, "Name.PrimeiroNome", "Nome deve conter pelo menos 3 caracteres")
-                .HasMinLen(SobreNome, 3, "Name.SobreNome", "Sobrenome deve conter pelo menos 3 caracteres")
-                .HasMaxLen(PrimeiroNome, 40, "Name.PrimeiroNome", "Nome deve conter até 40 caracteres")
-                .HasMaxLen(SobreNome, 40, "Name.SobreNome", "SobreNome deve conter até 40 caracteres")
+                .HasMinLen(PrimeiroNome, 3, "PrimeiroNome", "Nome deve conter pelo menos 3 caracteres")
+                .HasMinLen(SobreNome, 3, "SobreNome", "Sobrenome deve conter pelo menos 3 caracteres")
+                .HasMaxLen(PrimeiroNome, 40, "PrimeiroNome", "Nome deve conter até 40 caracteres")
+                .HasMaxLen(SobreNome, 40, "SobreNome", "SobreNome deve conter até 40 caracteres")
             );
         }
 

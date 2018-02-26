@@ -1,5 +1,6 @@
 ﻿using BancoUnificadoCore.Domain.Enums;
 using BancoUnificadoCore.Shared.Entities;
+using Flunt.Validations;
 using System;
 using System.Collections.Generic;
 
@@ -7,6 +8,9 @@ namespace BancoUnificadoCore.Domain.Entities
 {
     public class Titulo : Entity
     {
+        //Contrutor vazio.
+        public Titulo(){}
+
         private List<Pessoa> _Pessoa;
         public Titulo(string protocolo, DateTime dataProtocolo, 
             int livro, int folha, DateTime dataProtesto, 
@@ -66,7 +70,5 @@ namespace BancoUnificadoCore.Domain.Entities
         {
             _Pessoa.Add(pessoa);
         }
-
-
     }
 }

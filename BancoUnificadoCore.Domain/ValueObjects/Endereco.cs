@@ -15,9 +15,9 @@ namespace BancoUnificadoCore.Domain.Entities
 
             AddNotifications(new Contract()
                 .Requires()
-                .IsNullOrEmpty(Logradouro, "Endereco.Logradouro", "Endereco inválido")
-                .IsNullOrEmpty(Bairro, "Endereco.Bairro", "Bairro inválido")
-                .IsNullOrEmpty(Cidade, "Endereco.Cidade", "Cidade inválida")
+                .IsNullOrEmpty(Logradouro, "Logradouro", "Endereco inválido")
+                .IsNullOrEmpty(Bairro, "Bairro", "Bairro inválido")
+                .IsNullOrEmpty(Cidade, "Cidade", "Cidade inválida")
             );
         }
 

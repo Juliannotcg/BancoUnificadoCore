@@ -5,6 +5,9 @@ namespace BancoUnificadoCore.Domain.Entities
 {
     public class Pessoa : Entity
     {
+        //Construtor vazio.
+        public Pessoa(){}
+
         public Pessoa(Nome nome, Documento documento, Endereco endereco)
         {
             Nome = nome;

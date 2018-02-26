@@ -17,20 +17,21 @@ namespace BancoUnificadoCore.Test.ValueObject
             var doc = new Documento(ETipoDocumento.CNPJ, "123");
             Assert.IsTrue(doc.Invalid);
         }
-        /// </summary>
+
         [TestMethod]
         public void DeveRetornarSucessoQuandoCNPJValido()
         {
             var doc = new Documento(ETipoDocumento.CNPJ, "42016505000194");
             Assert.IsTrue(doc.Valid);
         }
+
         [TestMethod]
         public void DeveRetornarErrorQuandoCPFInvalido()
         {
             var doc = new Documento(ETipoDocumento.CPF, "123");
             Assert.IsTrue(doc.Invalid);
         }
-        /// </summary>
+
         [TestMethod]
         public void DeveRetornarSucessoQuandoCPFValido()
         {

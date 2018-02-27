@@ -1,6 +1,6 @@
 ﻿namespace BancoUnificadoCore.Domain.Enums
 {
-    public enum Acao
+    public enum EAcao
     {
         Protestado = 1,
         Cancelado = 2

@@ -19,6 +19,9 @@ namespace BancoUnificadoCore.Test.ValueObject
         }
 
         [TestMethod]
+        [DataTestMethod]
+        [DataRow("10566505000171")]
+        [DataRow("08883520000100")]
         public void DeveRetornarSucessoQuandoCNPJValido()
         {
             var doc = new Documento(ETipoDocumento.CNPJ, "42016505000194");
@@ -33,6 +36,9 @@ namespace BancoUnificadoCore.Test.ValueObject
         }
 
         [TestMethod]
+        [DataTestMethod]
+        [DataRow("54083665610")]
+        [DataRow("63626903206")]
         public void DeveRetornarSucessoQuandoCPFValido()
         {
             var doc = new Documento(ETipoDocumento.CPF, "08816614650");

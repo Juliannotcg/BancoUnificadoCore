@@ -18,7 +18,7 @@ namespace BancoUnificadoCore.Domain.Entities
             DateTime dataVencimento, string especie, 
             int numero, int nossoNumero, decimal valor, 
             decimal saldo, string endosso, string aceite, 
-            bool finsFalimentares, int motivoProtesto, Acao acao, DateTime dataAcao, int sequencial)
+            bool finsFalimentares, int motivoProtesto, EAcao acao, DateTime dataAcao, int sequencial)
         {
             Protocolo = protocolo;
             DataProtocolo = dataProtocolo;
@@ -67,7 +67,7 @@ namespace BancoUnificadoCore.Domain.Entities
         public string Aceite { get; private set; }
         public bool FinsFalimentares { get; private set; }
         public int MotivoProtesto { get; private set; }
-        public Acao Acao { get; private set; }
+        public EAcao Acao { get; private set; }
         public DateTime DataAcao { get; private set; }
         public int Sequencial { get; private set; }
         public IReadOnlyCollection<Pessoa> pessoa { get; private set; }

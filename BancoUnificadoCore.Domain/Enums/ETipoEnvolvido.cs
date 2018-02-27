@@ -1,6 +1,6 @@
 ﻿namespace BancoUnificadoCore.Domain.Enums
 {
-    public enum TipoEnvolvido
+    public enum ETipoEnvolvido
     {
         Apresentante = 1,
         Devedor = 2,

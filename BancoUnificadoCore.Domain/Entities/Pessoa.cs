@@ -1,4 +1,5 @@
-﻿using BancoUnificadoCore.Domain.ValueObjects;
+﻿using BancoUnificadoCore.Domain.Enums;
+using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Shared.Entities;
 
 namespace BancoUnificadoCore.Domain.Entities
@@ -8,16 +9,17 @@ namespace BancoUnificadoCore.Domain.Entities
         //Construtor vazio.
         public Pessoa(){}
 
-        public Pessoa(Nome nome, Documento documento, Endereco endereco)
+        public Pessoa(Nome nome, Documento documento, Endereco endereco, ETipoEnvolvido tipoEnvolvido)
         {
             Nome = nome;
             Endereco = endereco;
             Documento = documento;
+            TipoEnvolvido = tipoEnvolvido;
         }
 
         public Nome Nome { get; private set; }
         public Documento Documento { get; private set; }
-        public Envolvido envolvido { get; private set; }
+        public ETipoEnvolvido TipoEnvolvido { get; private set; }
         public Endereco Endereco { get; set; }
     }
 }

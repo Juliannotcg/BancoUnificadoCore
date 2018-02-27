@@ -17,8 +17,9 @@ namespace BancoUnificadoCore.Test.Entities
             var nome = new Nome("Julianno", "Garcia");
             var documento = new Documento(ETipoDocumento.CPF, "08816614650");
             var endereco = new Endereco("QNH 05", "QNH", "Taguatinga", "DF", "72130550");
+            var pessoa = new Pessoa(nome, documento, endereco, ETipoEnvolvido.Devedor);
 
-            Assert.Fail();
+            Assert.IsTrue(pessoa.Valid);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using BancoUnificadoCore.Shared.ValueObject;
 using Flunt.Validations;
 
-namespace BancoUnificadoCore.Domain.Entities
+namespace BancoUnificadoCore.Domain.ValueObjects
 {
     public class Endereco : ValueObject
     {

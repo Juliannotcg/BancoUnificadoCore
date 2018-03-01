@@ -8,9 +8,8 @@ namespace BancoUnificadoCore.Domain.Entities
     {
         public Apresentante(){}
 
-        public Apresentante(Guid id,string codigoApresentante)
+        public Apresentante(string codigoApresentante)
         {
-            Id = id;
             CodigoApresentante = codigoApresentante;
 
             AddNotifications(new Contract()

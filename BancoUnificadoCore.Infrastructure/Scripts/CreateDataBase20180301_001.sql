@@ -44,8 +44,8 @@ CREATE TABLE [TitTitulo]
 	[TitMotivoProtesto] VARCHAR(100) NOT NULL,
 	[TitAcao] INT NOT NULL,
 	[TitDataAcao] DATETIME NOT NULL DEFAULT(GETDATE()),
-	[TitSequencial] INT NOT NULL
-	FOREIGN KEY ([Tit_PesID]) REFERENCES [PesPessoa]([PesId])
+	[TitSequencial] INT NOT NULL,
+	FOREIGN KEY ([Tit_PesID]) REFERENCES [PesPessoa]([PesId]),
 	FOREIGN KEY ([Tit_AprId]) REFERENCES [AprApresentante]([AprId])
 )
 

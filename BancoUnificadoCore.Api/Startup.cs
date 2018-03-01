@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BancoUnificadoCore.Domain.Handlers;
 using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Infrastructure.Context;
 using BancoUnificadoCore.Infrastructure.Repository.Dapper;
@@ -33,7 +34,8 @@ namespace BancoUnificadoCore.Api
             services.AddResponseCompression();
 
             services.AddScoped<ContextDapper, ContextDapper>();
-            services.AddTransient<IApresentanteRepository, ApresentanteRepository>();
+            services.AddTransient<ICargaDiariaRepository, CargaDiariaRepository>();
+            services.AddTransient<CargaDiariaHandler, CargaDiariaHandler>();
 
             services.AddSwaggerGen(x =>
             {

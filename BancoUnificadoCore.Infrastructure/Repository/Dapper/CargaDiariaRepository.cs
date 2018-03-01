@@ -20,7 +20,11 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
             _context.Connection.Execute("spCreateApresentane",
             new
             {
-                
+                //Id = cargaDiaria.Id,
+                //FirstName = apresentante.pessoa.Nome.PrimeiroNome,
+                //SegundoNome = apresentante.pessoa.Nome.SobreNome,
+                //Documento = apresentante.pessoa.Documento,
+                //CodigoApresentane = apresentante.CodigoApresentante
             }, commandType: CommandType.StoredProcedure);
         }
     }

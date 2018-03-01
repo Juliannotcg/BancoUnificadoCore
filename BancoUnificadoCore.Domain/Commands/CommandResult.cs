@@ -4,8 +4,6 @@ namespace BancoUnificadoCore.Domain.Commands
 {
     public class CommandResult : ICommandResult
     {
-        public CommandResult(){}
-
         public CommandResult(bool succes, string mensagem)
         {
             Succes = succes;
@@ -14,5 +12,7 @@ namespace BancoUnificadoCore.Domain.Commands
 
         public bool Succes { get; set; }
         public string Mensagem { get; set; }
+        public bool Success { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public string Message { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     }
 }

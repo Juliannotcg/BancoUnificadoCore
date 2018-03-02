@@ -11,14 +11,14 @@ namespace BancoUnificadoCore.Domain.Entities
         //Contrutor vazio.
         public Titulo(){}
 
-        private Pessoa _Pessoa;
+      
         public Titulo(string protocolo, DateTime dataProtocolo, 
             int livro, int folha, DateTime dataProtesto, 
             int numeroProtesto, DateTime dataEmissao, 
             DateTime dataVencimento, string especie, 
             int numero, int nossoNumero, decimal valor, 
             decimal saldo, string endosso, string aceite, 
-            bool finsFalimentares, int motivoProtesto, EAcao acao, DateTime dataAcao, int sequencial)
+            bool finsFalimentares, int motivoProtesto, EAcao acao, DateTime dataAcao, int sequencial, Pessoa pessoa, Apresentante apresentante)
         {
             Protocolo = protocolo;
             DataProtocolo = dataProtocolo;
@@ -40,7 +40,8 @@ namespace BancoUnificadoCore.Domain.Entities
             Acao = acao;
             DataAcao = dataAcao;
             Sequencial = sequencial;
-            _Pessoa = pessoa;
+            Pessoa = pessoa;
+            Apresentante = apresentante;
 
             AddNotifications(new Contract()
                 .Requires()
@@ -70,8 +71,8 @@ namespace BancoUnificadoCore.Domain.Entities
         public EAcao Acao { get; private set; }
         public DateTime DataAcao { get; private set; }
         public int Sequencial { get; private set; }
-        public Pessoa pessoa { get; private set; }
-        public Apresentante apresentante { get; private set; }
+        public Pessoa Pessoa { get; private set; }
+        public Apresentante Apresentante { get; private set; }
 
         public bool ValidateData(DateTime DataProtesto, DateTime DataApresentacao)
         {

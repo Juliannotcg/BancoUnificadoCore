@@ -10,7 +10,6 @@ namespace BancoUnificadoCore.Domain.Commands
 {
     public class CommandCreateCargaDiaria : Notifiable, ICommand
     {
-        public Guid Id { get; set; }
         public string Protocolo { get; set; }
         public int Livro { get; set; }
         public int Folha { get; set; }

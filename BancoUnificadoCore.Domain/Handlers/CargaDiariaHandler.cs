@@ -44,7 +44,7 @@ namespace BancoUnificadoCore.Domain.Handlers
             //Gerando os Entities Pessoa
             var pessoa = new Pessoa(nome, documento, endereco, command.TipoEnvolvido);
             //Gerando os Entities Apresentante 
-            var apresentante = new Apresentante(command.CodigoApresentante);
+            var apresentante = new Apresentante(command.CodigoApresentante, pessoa);
             //Gerando os Entities Cartorio
             var cartorio = new Cartorio(command.CodigoCartorio);
             //Gerando os Entities Titulo
@@ -67,7 +67,9 @@ namespace BancoUnificadoCore.Domain.Handlers
                 command.MotivoProtesto,
                 command.Acao,
                 command.DataAcao,
-                command.Sequencial);
+                command.Sequencial,
+                pessoa,
+                apresentante);
 
             //Gerando a Entitie CargaDiaria
             var cargaDiaria = new CargaDiaria(titulo);

@@ -32,24 +32,24 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
             _context.Connection.Execute("spCreatePessoa",
             new
             {
-                PesId = apresentante.pessoa.Id,
-                PesNome = apresentante.pessoa.Nome.PrimeiroNome,
-                PesSobreNome = apresentante.pessoa.Nome.SobreNome,
-                PesTipoDocuemtno = apresentante.pessoa.Documento.TipoDocumento,
-                PesDocumento = apresentante.pessoa.Documento.NumeroDocumento,
-                PesEndereco = apresentante.pessoa.Endereco.Logradouro,
-                PesBairro = apresentante.pessoa.Endereco.Bairro,
-                PesCidade = apresentante.pessoa.Endereco.Cidade,
-                PesUf = apresentante.pessoa.Endereco.Uf,
-                PesCEP = apresentante.pessoa.Endereco.Cep
+                PesId = apresentante.Pessoa.Id,
+                PesNome = apresentante.Pessoa.Nome.PrimeiroNome,
+                PesSobreNome = apresentante.Pessoa.Nome.SobreNome,
+                PesTipoDocuemtno = apresentante.Pessoa.Documento.TipoDocumento,
+                PesDocumento = apresentante.Pessoa.Documento.NumeroDocumento,
+                PesEndereco = apresentante.Pessoa.Endereco.Logradouro,
+                PesBairro = apresentante.Pessoa.Endereco.Bairro,
+                PesCidade = apresentante.Pessoa.Endereco.Cidade,
+                PesUf = apresentante.Pessoa.Endereco.Uf,
+                PesCEP = apresentante.Pessoa.Endereco.Cep
 
             }, commandType: CommandType.StoredProcedure);
 
-            _context.Connection.Execute("spCreatePessoa",
+            _context.Connection.Execute("spCreateApresentante",
             new
             {
                 AprId = apresentante.Id,
-                Apr_PesId = apresentante.pessoa.Id,
+                Apr_PesId = apresentante.Pessoa.Id,
                 CodigoApresentane = apresentante.CodigoApresentante
             }, commandType: CommandType.StoredProcedure);
         }

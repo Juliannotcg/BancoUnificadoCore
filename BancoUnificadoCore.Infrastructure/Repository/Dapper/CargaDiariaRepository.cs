@@ -21,8 +21,8 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
             new
             {
                 TitId = cargaDiaria.Id,
-                Tit_PesID = cargaDiaria.titulo.pessoa.Id,
-                Tit_AprId = cargaDiaria.titulo.apresentante.Id,
+                Tit_PesID = cargaDiaria.titulo.Pessoa.Id,
+                Tit_AprId = cargaDiaria.titulo.Apresentante.Id,
                 TitProtocolo = cargaDiaria.titulo.Protocolo,
                 TitDataProtocolo = cargaDiaria.titulo.DataProtocolo,
                 TitLivro = cargaDiaria.titulo.Livro,

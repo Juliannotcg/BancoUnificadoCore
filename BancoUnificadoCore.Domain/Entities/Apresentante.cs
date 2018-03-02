@@ -8,8 +8,9 @@ namespace BancoUnificadoCore.Domain.Entities
     {
         public Apresentante(){}
 
-        public Apresentante(string codigoApresentante)
+        public Apresentante(string codigoApresentante, Pessoa pessoa)
         {
+            Pessoa = pessoa;
             CodigoApresentante = codigoApresentante;
 
             AddNotifications(new Contract()
@@ -18,6 +19,6 @@ namespace BancoUnificadoCore.Domain.Entities
         }
 
         public string CodigoApresentante { get; private set; }
-        public Pessoa pessoa { get; set; }
+        public Pessoa Pessoa { get; set; }
     }
 }

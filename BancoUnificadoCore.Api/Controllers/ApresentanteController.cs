@@ -27,12 +27,12 @@ namespace BancoUnificadoCore.Api.Controllers
         }
 
 
-        [HttpPost]
-        [Route("v1/apresentante")]
-        public ICommandResult Post([FromBody]CreateCustomerCommand command)
-        {
-            var result = (CreateCustomerCommandResult)_handler.Handle(command);
-            return result;
-        }
+        //[HttpPost]
+        //[Route("v1/apresentante")]
+        //public ICommandResult Post([FromBody]CreateCustomerCommand command)
+        //{
+        //    var result = (CreateCustomerCommandResult)_handler.Handle(command);
+        //    return result;
+        //}
     }
 }

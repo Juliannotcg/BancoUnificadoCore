@@ -1,18 +1,14 @@
 CREATE PROCEDURE spCreateApresentante
-    @Id UNIQUEIDENTIFIER,
-    @PrimeiroNome VARCHAR(40),
-    @SegundoNome VARCHAR(40),
-    @Documento INT(11),
+    @AprId UNIQUEIDENTIFIER,
+	@Apr_PesId UNIQUEIDENTIFIER,
     @CodigoApresentante VARCHAR(160)
 AS
     INSERT INTO [Apresentante] (
-        [Id], 
-        [PrimeiroNome], 
-        [SegundoNome], 
-        [Documento], 
+        [AprId], 
+        [Apr_PesId], 
         [CodigoApresentante]
     ) VALUES (
-        @Id,
+        @AprId,
         @PrimeiroNome,
         @SegundoNome,
         @Documento,

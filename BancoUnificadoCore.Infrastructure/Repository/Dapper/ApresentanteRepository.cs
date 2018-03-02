@@ -29,13 +29,27 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
 
         public void Save(Apresentante apresentante)
         {
-            _context.Connection.Execute("spCreateApresentane",
+            _context.Connection.Execute("spCreatePessoa",
             new
             {
-                Id = apresentante.Id,
-                FirstName = apresentante.pessoa.Nome.PrimeiroNome,
-                SegundoNome = apresentante.pessoa.Nome.SobreNome,
-                Documento = apresentante.pessoa.Documento,
+                PesId = apresentante.pessoa.Id,
+                PesNome = apresentante.pessoa.Nome.PrimeiroNome,
+                PesSobreNome = apresentante.pessoa.Nome.SobreNome,
+                PesTipoDocuemtno = apresentante.pessoa.Documento.TipoDocumento,
+                PesDocumento = apresentante.pessoa.Documento.NumeroDocumento,
+                PesEndereco = apresentante.pessoa.Endereco.Logradouro,
+                PesBairro = apresentante.pessoa.Endereco.Bairro,
+                PesCidade = apresentante.pessoa.Endereco.Cidade,
+                PesUf = apresentante.pessoa.Endereco.Uf,
+                PesCEP = apresentante.pessoa.Endereco.Cep
+
+            }, commandType: CommandType.StoredProcedure);
+
+            _context.Connection.Execute("spCreatePessoa",
+            new
+            {
+                AprId = apresentante.Id,
+                Apr_PesId = apresentante.pessoa.Id,
                 CodigoApresentane = apresentante.CodigoApresentante
             }, commandType: CommandType.StoredProcedure);
         }

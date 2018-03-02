@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BancoUnificadoCore.Domain.Commands;
+using BancoUnificadoCore.Domain.Handlers;
 using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Domain.Queries;
-using Microsoft.AspNetCore.Http;
+using BancoUnificadoCore.Shared.Commands;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace BancoUnificadoCore.Api.Controllers
 {
     public class ApresentanteController : Controller
     {
         private readonly IApresentanteRepository _repository;
+        private readonly ApresentanteHandler _handler;
 
-        public ApresentanteController(IApresentanteRepository repository)
+        public ApresentanteController(IApresentanteRepository repository, ApresentanteHandler handler)
         {
             _repository = repository;
+            _handler = handler;
         }
         
         [HttpGet]
@@ -26,13 +27,12 @@ namespace BancoUnificadoCore.Api.Controllers
             return _repository.Get(id);
         }
 
-
-        //[HttpPost]
-        //[Route("v1/apresentante")]
-        //public ICommandResult Post([FromBody]CreateCustomerCommand command)
-        //{
-        //    var result = (CreateCustomerCommandResult)_handler.Handle(command);
-        //    return result;
-        //}
+        [HttpPost]
+        [Route("v1/apresentante")]
+        public ICommandResult Post([FromBody]CommandCreateApresentante command)
+        {
+            var result = (CommandCreateApresentanteResult)_handler.Handle(command);
+            return result;
+        }
     }
 }

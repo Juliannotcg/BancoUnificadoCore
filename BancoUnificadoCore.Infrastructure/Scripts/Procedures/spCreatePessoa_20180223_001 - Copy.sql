@@ -10,7 +10,7 @@ CREATE PROCEDURE spCreatePessoa
 	@PesUf VARCHAR(2),
 	@PesCEP INT
 AS
-    INSERT INTO [Apresentante] (
+    INSERT INTO [PesPessoa] (
 		[PesId],
 		[PesNome],
 		[PesSobreNome],

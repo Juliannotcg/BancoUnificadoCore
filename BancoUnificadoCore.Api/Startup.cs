@@ -36,6 +36,8 @@ namespace BancoUnificadoCore.Api
             services.AddScoped<ContextDapper, ContextDapper>();
             services.AddTransient<ICargaDiariaRepository, CargaDiariaRepository>();
             services.AddTransient<CargaDiariaHandler, CargaDiariaHandler>();
+            services.AddTransient<IApresentanteRepository, ApresentanteRepository>();
+            services.AddTransient<ApresentanteHandler, ApresentanteHandler>();
 
             services.AddSwaggerGen(x =>
             {

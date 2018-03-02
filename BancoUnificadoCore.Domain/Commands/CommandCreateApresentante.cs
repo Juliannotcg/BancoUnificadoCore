@@ -7,7 +7,6 @@ namespace BancoUnificadoCore.Domain.Commands
 {
     public class CommandCreateApresentante: Notifiable, ICommand
     {
-        public Guid Id { get; set; }
         public string CodigoApresentante { get;  set; }
         public string Nome { get; set; }
         public string SobreNome { get; set; }

@@ -17,14 +17,32 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
 
         public void Save(CargaDiaria cargaDiaria)
         {
-            _context.Connection.Execute("spCreateApresentane",
+            _context.Connection.Execute("spCreateCargaDiaria",
             new
             {
-                //Id = cargaDiaria.Id,
-                //FirstName = apresentante.pessoa.Nome.PrimeiroNome,
-                //SegundoNome = apresentante.pessoa.Nome.SobreNome,
-                //Documento = apresentante.pessoa.Documento,
-                //CodigoApresentane = apresentante.CodigoApresentante
+                TitId = cargaDiaria.Id,
+                Tit_PesID = cargaDiaria.titulo.pessoa.Id,
+                Tit_AprId = cargaDiaria.titulo.apresentante.Id,
+                TitProtocolo = cargaDiaria.titulo.Protocolo,
+                TitDataProtocolo = cargaDiaria.titulo.DataProtocolo,
+                TitLivro = cargaDiaria.titulo.Livro,
+                TitFolha = cargaDiaria.titulo.Folha,
+                TitDataProtesto = cargaDiaria.titulo.DataProtesto,
+                TitNumeroProtesto = cargaDiaria.titulo.NumeroProtesto,
+                TitDataEmissao = cargaDiaria.titulo.DataEmissao,
+                TitDataVencimento = cargaDiaria.titulo.DataVencimento,
+                TitEspecie = cargaDiaria.titulo.Especie,
+                TitNumero = cargaDiaria.titulo.Numero,
+                TitNossoNumero = cargaDiaria.titulo.NossoNumero,
+                TitValor = cargaDiaria.titulo.Valor,
+                TitSaldo = cargaDiaria.titulo.Saldo,
+                TitEndosso = cargaDiaria.titulo.Endosso,
+                TitAceite = cargaDiaria.titulo.Aceite,
+                TitFinsFalimentares = cargaDiaria.titulo.FinsFalimentares,
+                TitMotivoProtesto = cargaDiaria.titulo.MotivoProtesto,
+                TitAcao = cargaDiaria.titulo.Acao,
+                TitDataAcao = cargaDiaria.titulo.DataAcao,
+                TitSequencial = cargaDiaria.titulo.Sequencial
             }, commandType: CommandType.StoredProcedure);
         }
     }

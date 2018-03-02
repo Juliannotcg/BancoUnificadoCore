@@ -11,7 +11,7 @@ namespace BancoUnificadoCore.Domain.Entities
         //Contrutor vazio.
         public Titulo(){}
 
-        private List<Pessoa> _Pessoa;
+        private Pessoa _Pessoa;
         public Titulo(string protocolo, DateTime dataProtocolo, 
             int livro, int folha, DateTime dataProtesto, 
             int numeroProtesto, DateTime dataEmissao, 
@@ -40,7 +40,7 @@ namespace BancoUnificadoCore.Domain.Entities
             Acao = acao;
             DataAcao = dataAcao;
             Sequencial = sequencial;
-            _Pessoa = new List<Pessoa>();
+            _Pessoa = pessoa;
 
             AddNotifications(new Contract()
                 .Requires()
@@ -70,13 +70,8 @@ namespace BancoUnificadoCore.Domain.Entities
         public EAcao Acao { get; private set; }
         public DateTime DataAcao { get; private set; }
         public int Sequencial { get; private set; }
-        public IReadOnlyCollection<Pessoa> pessoa { get; private set; }
+        public Pessoa pessoa { get; private set; }
         public Apresentante apresentante { get; private set; }
-
-        public void AddPessoa(Pessoa pessoa)
-        {
-            _Pessoa.Add(pessoa);
-        }
 
         public bool ValidateData(DateTime DataProtesto, DateTime DataApresentacao)
         {

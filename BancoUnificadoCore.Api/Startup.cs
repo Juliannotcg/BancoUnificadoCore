@@ -50,8 +50,6 @@ namespace BancoUnificadoCore.Api
                 app.UseDeveloperExceptionPage();
 
             app.UseMvc();
-
-            app.UseMvc();
             app.UseResponseCompression();
 
             app.UseSwagger();

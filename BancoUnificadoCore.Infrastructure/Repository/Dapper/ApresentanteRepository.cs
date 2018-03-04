@@ -12,6 +12,7 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
     public class ApresentanteRepository : IApresentanteRepository
     {
         private readonly ContextDapper _context;
+        private PessoaRepository pessoaRepository;
 
         public ApresentanteRepository(ContextDapper context)
         {
@@ -29,29 +30,19 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
 
         public void Save(Apresentante apresentante)
         {
-            _context.Connection.Execute("spCreatePessoa",
-            new
-            {
-                PesId = apresentante.Pessoa.Id,
-                PesNome = apresentante.Pessoa.Nome.PrimeiroNome,
-                PesSobreNome = apresentante.Pessoa.Nome.SobreNome,
-                PesTipoDocuemtno = apresentante.Pessoa.Documento.TipoDocumento,
-                PesDocumento = apresentante.Pessoa.Documento.NumeroDocumento,
-                PesEndereco = apresentante.Pessoa.Endereco.Logradouro,
-                PesBairro = apresentante.Pessoa.Endereco.Bairro,
-                PesCidade = apresentante.Pessoa.Endereco.Cidade,
-                PesUf = apresentante.Pessoa.Endereco.Uf,
-                PesCEP = apresentante.Pessoa.Endereco.Cep
+            pessoaRepository = new PessoaRepository(_context);
+            pessoaRepository.Save(apresentante.Pessoa);
 
-            }, commandType: CommandType.StoredProcedure);
+            string insertQueryApresentante = "INSERT INTO AprApresentante (AprId, Apr_PesId, AprCodigoApresentante)"
+                          + " VALUES(@Id, @Id @CodigoApresentante)";
 
-            _context.Connection.Execute("spCreateApresentante",
-            new
+            var resultApr = _context.Connection.Execute(insertQueryApresentante, new
             {
-                AprId = apresentante.Id,
-                Apr_PesId = apresentante.Pessoa.Id,
-                CodigoApresentane = apresentante.CodigoApresentante
-            }, commandType: CommandType.StoredProcedure);
+                apresentante.Id,
+                //apresentante.Pessoa.Id,
+                apresentante.CodigoApresentante
+            });
+            
         }
     }
 }

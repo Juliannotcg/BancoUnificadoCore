@@ -8,5 +8,6 @@ namespace BancoUnificadoCore.Domain.Interfaces
     {
         void Save(Apresentante apresentante);
         GetApresentanteResult Get(Guid id);
+        bool ApresentanteExist(Apresentante apresentante);
     }
 }

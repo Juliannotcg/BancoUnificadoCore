@@ -3,7 +3,7 @@ CREATE TABLE [PesPessoa]
 	[PesId] UNIQUEIDENTIFIER PRIMARY KEY NOT NULL,
 	[PesNome] VARCHAR(100) NOT NULL,
 	[PesSobreNome] VARCHAR(100) NOT NULL,
-	[PesTipoDocuemtno] INT NOT NULL,
+	[PesTipoDocumento] INT NOT NULL,
 	[PesDocumento] VARCHAR(20) NOT NULL,
 	[PesEndereco] VARCHAR(100) NOT NULL,
 	[PesBairro] VARCHAR(100) NOT NULL,

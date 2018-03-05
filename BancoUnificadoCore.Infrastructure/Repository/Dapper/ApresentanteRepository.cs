@@ -19,6 +19,18 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
             _context = context;
         }
 
+        public bool ApresentanteExist(Apresentante apresentante)
+        {
+            string codigoApresentante = apresentante.CodigoApresentante;
+
+            var result = _context.Connection.QueryFirstOrDefault<Pessoa>("SELECT E.AprCodigoApresentante," +
+                    "FROM dbo.AprApresentante E " +
+                    "WHERE E.AprCodigoApresentante = @CodigoApresentante",
+                    new { CodigoApresentante = codigoApresentante });
+
+            return false;
+        }
+
         public GetApresentanteResult Get(Guid id)
         {
             return
@@ -31,18 +43,17 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
         public void Save(Apresentante apresentante)
         {
             pessoaRepository = new PessoaRepository(_context);
-            pessoaRepository.Save(apresentante.Pessoa);
 
-            string insertQueryApresentante = "INSERT INTO AprApresentante (AprId, Apr_PesId, AprCodigoApresentante)"
-                          + " VALUES(@Id, @Id @CodigoApresentante)";
+            if (!pessoaRepository.PessoaExist(apresentante.Pessoa.Documento))
+                pessoaRepository.Save(apresentante.Pessoa);
 
-            var resultApr = _context.Connection.Execute(insertQueryApresentante, new
-            {
-                apresentante.Id,
-                //apresentante.Pessoa.Id,
-                apresentante.CodigoApresentante
-            });
-            
+             _context.Connection.Execute("spCreateApresentante",
+             new
+             {
+                 AprId = apresentante.Id,
+                 Apr_PesId = apresentante.Pessoa.Id,
+                 AprCodigoApresentante = apresentante.CodigoApresentante
+             }, commandType: CommandType.StoredProcedure);
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public class Settings
     {
-        public static string ConnectionString = @"Server=JULIANNO;Database=BancoUnificadoCore;User ID=sa;Password=garciajtc241188;";
+        public static string ConnectionString = @"Server=producao07;Database=BancoUnificadoCore;User ID=sa;Password=p21Sistemas;";
     }
 }

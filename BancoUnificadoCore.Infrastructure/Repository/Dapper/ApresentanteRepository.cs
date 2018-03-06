@@ -26,7 +26,7 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
             var result = _context.Connection.QueryFirstOrDefault<Pessoa>("SELECT E.AprCodigoApresentante," +
                     "FROM dbo.AprApresentante E " +
                     "WHERE E.AprCodigoApresentante = @CodigoApresentante",
-                    new { CodigoApresentante = codigoApresentante });
+                    new {CodigoApresentante = codigoApresentante});
 
             return false;
         }

@@ -19,8 +19,8 @@ namespace BancoUnificadoCore.Domain.ValueObjects
                 .IsTrue(ValidarDocumento(), "NumeroDocumento", "Documento inválido")
                 );
         }
-        public ETipoDocumento TipoDocumento { get; private set; }
-        public string NumeroDocumento { get; private set; }
+        public ETipoDocumento TipoDocumento { get; set; }
+        public string NumeroDocumento { get; set; }
 
         public bool ValidarDocumento()
         {

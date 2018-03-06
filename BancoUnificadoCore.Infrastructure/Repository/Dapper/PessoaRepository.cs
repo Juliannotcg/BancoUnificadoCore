@@ -20,20 +20,13 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
         public bool PessoaExist(Documento documento)
         {
             string numeroDocumento = documento.NumeroDocumento;
+            GetPessoaResult getPessoaResult = new GetPessoaResult();
 
-           var result = _context
-               .Connection
-               .Query<GetApresentanteResult>("SELECT [PesId], [PesNome], [PesTipoDocumento], [PesDocumento] FROM [PesPessoa]  WHERE [PesDocumento] = @Documento", new { Documento = numeroDocumento })
-               .FirstOrDefault();
+            var ass = _context.Connection.Query<GetPessoaResult>("SELECT * FROM PesPessoa").FirstOrDefault();
 
-            //_context
-            //    .Connection
-            //    .Query<bool>(
-            //        "spCheckDocument",
-            //        new { Documento = numeroDocumento },
-            //        commandType: CommandType.StoredProcedure)
-            //    .FirstOrDefault();
-
+            //var query = from c in ass
+            //            where ass.Contains(numeroDocumento)
+            //            select c;
 
             return false;
         }

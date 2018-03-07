@@ -5,6 +5,7 @@ using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Infrastructure.Context;
 using Dapper;
 using System;
+using System.Data;
 using System.Linq;
 
 namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
@@ -34,22 +35,20 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
 
         public void Save(Pessoa pessoa)
         {
-            string insertQuery = "INSERT INTO PesPessoa (PesId, PesNome, PesSobreNome, PesTipoDocumento, PesDocumento, PesEndereco, PesBairro, PesCidade, PesUf, PesCEP)"
-                            + " VALUES(@Id, @PrimeiroNome, @SobreNome, @TipoDocumento, @NumeroDocumento, @Logradouro, @Bairro, @Cidade, @Uf, @Cep )";
-
-            var result = _context.Connection.Execute(insertQuery, new
-            {
-                pessoa.Id,
-                pessoa.Nome.PrimeiroNome,
-                pessoa.Nome.SobreNome,
-                pessoa.Documento.TipoDocumento,
-                pessoa.Documento.NumeroDocumento,
-                pessoa.Endereco.Logradouro,
-                pessoa.Endereco.Bairro,
-                pessoa.Endereco.Cidade,
-                pessoa.Endereco.Uf,
-                pessoa.Endereco.Cep
-            });
+            _context.Connection.Execute("spCreatePessoa",
+             new
+             {
+                 PesId = pessoa.Id,
+                 PesNome = pessoa.Nome.PrimeiroNome,
+                 PesSobreNome = pessoa.Nome.SobreNome,
+                 PesTipoDocumento = pessoa.Documento.TipoDocumento,
+                 PesDocumento = pessoa.Documento.NumeroDocumento,
+                 PesEndereco = pessoa.Endereco.Logradouro,
+                 PesBairro = pessoa.Endereco.Bairro,
+                 PesCidade = pessoa.Endereco.Cidade,
+                 PesUf = pessoa.Endereco.Uf,
+                 PesCEP = pessoa.Endereco.Cep
+             }, commandType: CommandType.StoredProcedure);
         }
     }
 }

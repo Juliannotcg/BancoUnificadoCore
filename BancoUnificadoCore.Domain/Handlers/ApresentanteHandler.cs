@@ -39,7 +39,7 @@ namespace BancoUnificadoCore.Domain.Handlers
             //enviando para o repositorio para ser salvo.
             _repository.Save(apresentante);
 
-            return new CommandResult(true, "Carga diária processada com sucesso.");
+            return new CommandResult(true, "O Apresentante foi salvo com sucesso.");
         }
     }
 }

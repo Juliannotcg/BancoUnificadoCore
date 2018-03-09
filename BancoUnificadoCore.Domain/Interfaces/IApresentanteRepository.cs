@@ -4,7 +4,7 @@ using System;
 
 namespace BancoUnificadoCore.Domain.Interfaces
 {
-    public interface IApresentanteRepository 
+    public interface IApresentanteRepository :IRepository<Apresentante>
     {
         void Save(Apresentante apresentante);
         GetApresentanteResult Get(Guid id);

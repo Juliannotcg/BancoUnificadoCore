@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using BancoUnificadoCore.Domain.Handlers;
 using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Infrastructure.Context;
-using BancoUnificadoCore.Infrastructure.Repository.Dapper;
+using BancoUnificadoCore.Infrastructure.Repository.EntityFramework;
 using Elmah.Io.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,17 +26,15 @@ namespace BancoUnificadoCore.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
 
             services.AddResponseCompression();
 
-            services.AddScoped<ContextDapper, ContextDapper>();
-            services.AddTransient<ICargaDiariaRepository, CargaDiariaRepository>();
+            services.AddScoped<ContextEntity, ContextEntity>();
             services.AddTransient<CargaDiariaHandler, CargaDiariaHandler>();
-            services.AddTransient<IApresentanteRepository, ApresentanteRepository>();
+            services.AddTransient<IApresentanteRepository, ApresentanteRepositoryEntity>();
             services.AddTransient<ApresentanteHandler, ApresentanteHandler>();
 
             services.AddSwaggerGen(x =>

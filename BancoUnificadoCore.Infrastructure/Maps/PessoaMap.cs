@@ -14,49 +14,12 @@ namespace BancoUnificadoCore.Infrastructure.Maps
             builder.Property(c => c.Id)
                 .HasColumnName("Id");
 
-            builder.Property(c => c.Nome.PrimeiroNome)
-                .HasColumnType("varchar(100)")
-                .HasMaxLength(100)
-                .IsRequired();
+            builder.Property(c => c.TipoEnvolvido)
+           .IsRequired();
 
-            builder.Property(c => c.Nome.SobreNome)
-               .HasColumnType("varchar(100)")
-               .HasMaxLength(100)
-               .IsRequired();
-
-            builder.Property(c => c.Documento.TipoDocumento)
-                .IsRequired();
-
-            builder.Property(c => c.Documento.NumeroDocumento)
-             .HasColumnType("varchar(100)")
-             .HasMaxLength(11)
-             .IsRequired();
-
-            builder.Property(c => c.Endereco.Logradouro)
-             .HasColumnType("varchar(100)")
-             .HasMaxLength(11)
-             .IsRequired();
-
-            builder.Property(c => c.Endereco.Cidade)
-             .HasColumnType("varchar(100)")
-             .HasMaxLength(11)
-             .IsRequired();
-
-
-            builder.Property(c => c.Endereco.Bairro)
-             .HasColumnType("varchar(100)")
-             .HasMaxLength(11)
-             .IsRequired();
-
-            builder.Property(c => c.Endereco.Cep)
-             .HasColumnType("varchar(100)")
-             .HasMaxLength(11)
-             .IsRequired();
-
-            builder.Property(c => c.Endereco.Cep)
-             .HasColumnType("varchar(100)")
-             .HasMaxLength(11)
-             .IsRequired();
+            builder.OwnsOne(c => c.Nome);
+            builder.OwnsOne(c => c.Documento);
+            builder.OwnsOne(c => c.Endereco);
         }
     }
 }

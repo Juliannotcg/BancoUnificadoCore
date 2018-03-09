@@ -17,6 +17,7 @@ namespace BancoUnificadoCore.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new PessoaMap());
+            modelBuilder.ApplyConfiguration(new ApresentanteMap());
 
             base.OnModelCreating(modelBuilder);
         }

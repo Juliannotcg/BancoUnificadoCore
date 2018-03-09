@@ -15,6 +15,7 @@ namespace BancoUnificadoCore.Domain.Handlers
         Notifiable,
         IHandler<CommandCreateApresentante>
     {
+
         private readonly IApresentanteRepository _repository;
 
         public ApresentanteHandler(IApresentanteRepository repository)
@@ -37,6 +38,8 @@ namespace BancoUnificadoCore.Domain.Handlers
             var apresentante = new Apresentante(command.CodigoApresentante, pessoa);
 
             //enviando para o repositorio para ser salvo.
+            //_repository.Save(apresentante);
+
             _repository.Save(apresentante);
 
             return new CommandResult(true, "O Apresentante foi salvo com sucesso.");

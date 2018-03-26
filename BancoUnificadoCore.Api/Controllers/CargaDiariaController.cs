@@ -8,10 +8,10 @@ namespace BancoUnificadoCore.Api.Controllers
 {
     public class CargaDiariaController : Controller
     {
-        private readonly ICargaDiariaRepository _repository;
+        private readonly ICargaDiariaRepositoryEntity _repository;
         private readonly CargaDiariaHandler _handler;
 
-        public CargaDiariaController(ICargaDiariaRepository repository, CargaDiariaHandler handler)
+        public CargaDiariaController(ICargaDiariaRepositoryEntity repository, CargaDiariaHandler handler)
         {
             _repository = repository;
             _handler = handler;

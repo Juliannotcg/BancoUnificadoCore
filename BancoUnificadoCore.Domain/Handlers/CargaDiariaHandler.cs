@@ -10,9 +10,9 @@ namespace BancoUnificadoCore.Domain.Handlers
 {
     public class CargaDiariaHandler : CommandCreateCargaDiaria
     {
-        private readonly ICargaDiariaRepository _repository;
+        private readonly ICargaDiariaRepositoryEntity _repository;
 
-        public CargaDiariaHandler(ICargaDiariaRepository repository)
+        public CargaDiariaHandler(ICargaDiariaRepositoryEntity repository)
         {
             _repository = repository;
         }

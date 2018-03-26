@@ -11,11 +11,11 @@ namespace BancoUnificadoCore.Api.Controllers
 {
     public class ApresentanteController : Controller
     {
-        private readonly IApresentanteRepository _repository;
+        private readonly IApresentanteRepositoryEntity _repository;
         private readonly IApresentanteRepositoryDapper _repositoryDapper;
         private readonly ApresentanteHandler _handler;
 
-        public ApresentanteController(IApresentanteRepository repository, IApresentanteRepositoryDapper repositoryDapper, ApresentanteHandler handler)
+        public ApresentanteController(IApresentanteRepositoryEntity repository, IApresentanteRepositoryDapper repositoryDapper, ApresentanteHandler handler)
         {
             _repository = repository;
             _repositoryDapper = repositoryDapper;

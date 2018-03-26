@@ -12,9 +12,9 @@ namespace BancoUnificadoCore.Domain.Handlers
 {
     public class ApresentanteHandler : CommandCreateApresentante
     {
-        private readonly IApresentanteRepository _repository;
+        private readonly IApresentanteRepositoryEntity _repository;
 
-        public ApresentanteHandler(IApresentanteRepository repository)
+        public ApresentanteHandler(IApresentanteRepositoryEntity repository)
         {
             _repository = repository;
         }

@@ -35,13 +35,19 @@ namespace BancoUnificadoCore.Api
 
             services.AddScoped<ContextEntity, ContextEntity>();
             services.AddScoped<ContextDapper, ContextDapper>();
-            services.AddTransient<CargaDiariaHandler, CargaDiariaHandler>();
-            services.AddTransient<IApresentanteRepository, ApresentanteRepositoryEntity>();
-            services.AddTransient<IApresentanteRepositoryDapper, ApresentanteRepositoryDapper>();
-            services.AddTransient<IDevedorRepositoryDapper, DevedorRepositoryDapper>();
-            services.AddTransient<ICargaDiariaRepository, CargaDiariaRepositoryEntity>();
-            services.AddTransient<ApresentanteHandler, ApresentanteHandler>();
 
+            services.AddTransient<CargaDiariaHandler, CargaDiariaHandler>();
+            services.AddTransient<ApresentanteHandler, ApresentanteHandler>();
+            services.AddTransient<DevedorHandler, DevedorHandler>();
+
+            services.AddTransient<IApresentanteRepositoryEntity, ApresentanteRepositoryEntity>();
+            services.AddTransient<IApresentanteRepositoryDapper, ApresentanteRepositoryDapper>();
+
+            services.AddTransient<IDevedorRepositoryDapper, DevedorRepositoryDapper>();
+            services.AddTransient<IDevedorRepositoryEntity, DevedorRepositoryEntity>();
+
+            services.AddTransient<ICargaDiariaRepositoryEntity, CargaDiariaRepositoryEntity>();
+            
             services.AddSwaggerGen(x =>
             {
                 x.SwaggerDoc("v1", new Info { Title = "BancoUnificadoCore", Version = "v1" });

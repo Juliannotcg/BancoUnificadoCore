@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BancoUnificadoCore.Infrastructure.Repository.EntityFramework
 {
-    public class CargaDiariaRepositoryEntity : ICargaDiariaRepository
+    public class CargaDiariaRepositoryEntity : ICargaDiariaRepositoryEntity
     {
         protected readonly ContextEntity _context;
 

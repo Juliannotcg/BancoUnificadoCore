@@ -7,9 +7,7 @@ namespace BancoUnificadoCore.Domain.Entities
 {
     public class Titulo : Entity
     {
-        //Contrutor vazio.
-        public Titulo(){}
-      
+              
         public Titulo(string protocolo, DateTime dataProtocolo, 
             int livro, int folha, DateTime dataProtesto, 
             int numeroProtesto, DateTime dataEmissao, 
@@ -40,10 +38,10 @@ namespace BancoUnificadoCore.Domain.Entities
             Sequencial = sequencial;
             Apresentante = apresentante;
             Credor = credor;
-
-            foreach (var item in devedor)
-              Devedor.Add(item);
+            Devedor = devedor;
         }
+
+        protected Titulo() { }
 
         public string Protocolo { get; private set; }
         public DateTime DataProtocolo { get; private set; }

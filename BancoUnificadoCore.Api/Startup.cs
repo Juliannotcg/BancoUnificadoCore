@@ -38,6 +38,7 @@ namespace BancoUnificadoCore.Api
             services.AddTransient<CargaDiariaHandler, CargaDiariaHandler>();
             services.AddTransient<IApresentanteRepository, ApresentanteRepositoryEntity>();
             services.AddTransient<IApresentanteRepositoryDapper, ApresentanteRepositoryDapper>();
+            services.AddTransient<IDevedorRepositoryDapper, DevedorRepositoryDapper>();
             services.AddTransient<ICargaDiariaRepository, CargaDiariaRepositoryEntity>();
             services.AddTransient<ApresentanteHandler, ApresentanteHandler>();
 

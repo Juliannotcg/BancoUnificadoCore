@@ -23,7 +23,6 @@ namespace BancoUnificadoCore.Domain.Commands
         public bool FinsFalimentares { get; set; }
         public int MotivoProtesto { get; set; }
         public int Sequencial { get; set; }
-        public string CodigoApresentante { get; set; }
         public int CodigoCartorio { get; set; }
         public Apresentante Apresentante { get; set; }
         public Credor Credor { get; set; }

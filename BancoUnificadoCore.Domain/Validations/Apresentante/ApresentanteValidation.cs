@@ -27,7 +27,7 @@ namespace BancoUnificadoCore.Domain.Validations
         {
             RuleFor(c => c.NumeroDocumento)
                 .NotEmpty().WithMessage("O documento do apresentante deve ser preenchido.")
-                .Length(11, 14).WithMessage("O sobre-nome do apresentante deve conter entre 2 e 10 caracteres.");
+                .Length(11, 14).WithMessage("O documento do apresentante deve conter entre 11 e 14 caracteres.");
         }
     }
 }

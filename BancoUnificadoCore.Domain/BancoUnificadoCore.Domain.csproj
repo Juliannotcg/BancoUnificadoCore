@@ -12,4 +12,9 @@
     <ProjectReference Include="..\BancoUnificadoCore.Shared\BancoUnificadoCore.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Validations\Devedor\" />
+    <Folder Include="Validations\CargaDiaria\" />
+  </ItemGroup>
+
 </Project>

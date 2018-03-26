@@ -21,7 +21,7 @@ namespace BancoUnificadoCore.Domain.Handlers
 
         public ICommandResult Handle(CommandCreateApresentante command)
         {
-            //command.Validate();
+            command.IsValid();
             //Gerando os VO's Nome
            // var nome = new Nome(command.Nome, command.SobreNome);
            // //Gerando os VO's Documento

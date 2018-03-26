@@ -2,11 +2,6 @@
 using BancoUnificadoCore.Infrastructure.Class;
 using BancoUnificadoCore.Infrastructure.Maps;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 
 namespace BancoUnificadoCore.Infrastructure.Context
 {

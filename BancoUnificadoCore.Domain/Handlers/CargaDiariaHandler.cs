@@ -19,7 +19,6 @@ namespace BancoUnificadoCore.Domain.Handlers
 
         public ICommandResult Handle(CommandCreateCargaDiaria command)
         {
-
             //Gerando credor
             var credor = new Credor(command.Credor.Nome, command.Credor.Documento, command.Credor.Endereco);
 

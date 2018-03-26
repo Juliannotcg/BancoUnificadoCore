@@ -7,6 +7,9 @@ namespace BancoUnificadoCore.Domain.Validations
         public NewCreateApresentanteCommandValidation()
         {
             ValidateCodigoApresentante();
+            ValidateNomeApresentante();
+            ValidateSobreNomeApresentante();
+            ValidateDocumentoApresentante();
         }
     }
 }

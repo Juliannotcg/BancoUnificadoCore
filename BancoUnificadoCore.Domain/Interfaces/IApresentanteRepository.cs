@@ -6,7 +6,7 @@ namespace BancoUnificadoCore.Domain.Interfaces
 {
     public interface IApresentanteRepository :IRepository<Apresentante>
     {
-        void Save(Apresentante apresentante);
+        void Add(Apresentante apresentante);
         GetApresentanteResult Get(Guid id);
         bool ApresentanteExist(Apresentante apresentante);
     }

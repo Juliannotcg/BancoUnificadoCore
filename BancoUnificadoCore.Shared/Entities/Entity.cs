@@ -1,9 +1,8 @@
-﻿using Flunt.Notifications;
-using System;
+﻿using System;
 
 namespace BancoUnificadoCore.Shared.Entities
 {
-    public abstract class Entity : Notifiable
+    public abstract class Entity 
     {
         public Entity()
         {

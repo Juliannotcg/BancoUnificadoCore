@@ -1,11 +1,8 @@
 ﻿using BancoUnificadoCore.Domain.Commands;
-using BancoUnificadoCore.Domain.Entities;
 using BancoUnificadoCore.Domain.Handlers;
 using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Shared.Commands;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections;
 
 namespace BancoUnificadoCore.Api.Controllers
 {

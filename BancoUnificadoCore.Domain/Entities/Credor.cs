@@ -1,22 +1,19 @@
 ﻿using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Shared.Entities;
-using System;
 
 namespace BancoUnificadoCore.Domain.Entities
 {
-    public class Apresentante : Entity
+    public class Credor : Entity
     {
-        public Apresentante(){}
+        public Credor(){}
 
-        public Apresentante(string codigoApresentante ,Nome nome, Documento documento, Endereco endereco)
+        public Credor(Nome nome, Documento documento, Endereco endereco)
         {
-            CodigoApresentante = codigoApresentante;
             Nome = nome;
             Endereco = endereco;
             Documento = documento;
         }
 
-        public string CodigoApresentante { get; private set; }
         public Nome Nome { get; private set; }
         public Documento Documento { get; private set; }
         public Endereco Endereco { get; private set; }

@@ -1,26 +1,41 @@
 ﻿using BancoUnificadoCore.Domain.Entities;
 using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Domain.Queries;
-using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Infrastructure.Context;
-using BancoUnificadoCore.Infrastructure.Repository.Entity;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace BancoUnificadoCore.Infrastructure.Repository.EntityFramework
 {
-    public class ApresentanteRepositoryEntity : Repository<Apresentante>, IApresentanteRepository
+    public class ApresentanteRepositoryEntity : IApresentanteRepository
     {
-        public ApresentanteRepositoryEntity(ContextEntity context)
-            : base(context)
-        {
+        protected readonly ContextEntity _context;
 
+        public ApresentanteRepositoryEntity(ContextEntity context)
+        {
+            _context = context;
         }
 
-        public bool ApresentanteExist(Apresentante apresentante)
+        public void Add(Apresentante apresentante)
         {
-            throw new NotImplementedException();
+            _context.Add(apresentante);
+            SaveChanges();
+        }
+
+        public void Remove(Guid id)
+        {
+            //_context.Remove(id);
+        }
+
+        public int SaveChanges()
+        {
+            return _context.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            _context.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         public GetApresentanteResult Get(Guid id)
@@ -28,7 +43,22 @@ namespace BancoUnificadoCore.Infrastructure.Repository.EntityFramework
             throw new NotImplementedException();
         }
 
-        public void Save(Apresentante apresentante)
+        public bool ApresentanteExist(Apresentante apresentante)
+        {
+            throw new NotImplementedException();
+        }
+
+        Apresentante IRepository<Apresentante>.GetById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        IQueryable<Apresentante> IRepository<Apresentante>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Apresentante obj)
         {
             throw new NotImplementedException();
         }

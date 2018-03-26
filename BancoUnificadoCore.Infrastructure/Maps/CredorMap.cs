@@ -4,18 +4,14 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BancoUnificadoCore.Infrastructure.Maps
 {
-    public class ApresentanteMap : BaseMap<Apresentante>
+    public class CredorMap : BaseMap<Credor>
     {
-        public override void Configure(EntityTypeBuilder<Apresentante> builder)
+        public override void Configure(EntityTypeBuilder<Credor> builder)
         {
-            builder.ToTable("Apresentante");
+            builder.ToTable("Credor");
 
             builder.Property(c => c.Id)
                 .HasColumnName("Id");
-
-            builder.Property(c => c.CodigoApresentante)
-                .IsRequired()
-                .HasColumnType("VARCHAR(100)");
 
             builder.OwnsOne(c => c.Nome, nome =>
             {

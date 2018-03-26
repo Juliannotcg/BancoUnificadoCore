@@ -1,7 +1,6 @@
 ﻿using BancoUnificadoCore.Domain.Enums;
 using BancoUnificadoCore.Shared;
 using BancoUnificadoCore.Shared.ValueObject;
-using Flunt.Validations;
 
 namespace BancoUnificadoCore.Domain.ValueObjects
 {
@@ -13,11 +12,6 @@ namespace BancoUnificadoCore.Domain.ValueObjects
         {
             TipoDocumento = tipoDocumento;
             NumeroDocumento = numeroDocumento;
-
-            AddNotifications(new Contract()
-                .Requires()
-                .IsTrue(ValidarDocumento(), "NumeroDocumento", "Documento inválido")
-                );
         }
         public ETipoDocumento TipoDocumento { get; set; }
         public string NumeroDocumento { get; set; }

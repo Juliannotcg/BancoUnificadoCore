@@ -1,5 +1,5 @@
 ﻿using BancoUnificadoCore.Shared.ValueObject;
-using Flunt.Validations;
+
 
 namespace BancoUnificadoCore.Domain.ValueObjects
 {
@@ -12,19 +12,12 @@ namespace BancoUnificadoCore.Domain.ValueObjects
             Cidade = cidade;
             Uf = uf;
             Cep = cep;
-
-            AddNotifications(new Contract()
-                .Requires()
-                .IsNullOrEmpty(Logradouro, "Logradouro", "Endereco inválido")
-                .IsNullOrEmpty(Bairro, "Bairro", "Bairro inválido")
-                .IsNullOrEmpty(Cidade, "Cidade", "Cidade inválida")
-            );
         }
 
-        public string Logradouro { get; private set; }
-        public string Bairro { get; private set; }
-        public string Cidade { get; private set; }
-        public string Uf { get; private set; }
-        public string Cep { get; private set; }
+        public string Logradouro { get; set; }
+        public string Bairro { get; set; }
+        public string Cidade { get; set; }
+        public string Uf { get; set; }
+        public string Cep { get; set; }
     }
 }

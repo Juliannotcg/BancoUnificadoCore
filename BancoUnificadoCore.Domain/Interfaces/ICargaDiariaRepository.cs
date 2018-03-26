@@ -2,7 +2,7 @@
 
 namespace BancoUnificadoCore.Domain.Interfaces
 {
-    public interface ICargaDiariaRepository
+    public interface ICargaDiariaRepository : IRepository<CargaDiaria>
     {
         void Save(CargaDiaria cargaDiaria);
     }

@@ -4,18 +4,14 @@ using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Shared.Commands;
 using BancoUnificadoCore.Shared.Handlers;
-using Flunt.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BancoUnificadoCore.Domain.Handlers
 {
-    public class ApresentanteHandler :
-        Notifiable,
-        IHandler<CommandCreateApresentante>
+    public class ApresentanteHandler : CommandCreateApresentante
     {
-
         private readonly IApresentanteRepository _repository;
 
         public ApresentanteHandler(IApresentanteRepository repository)
@@ -27,21 +23,20 @@ namespace BancoUnificadoCore.Domain.Handlers
         {
             //command.Validate();
             //Gerando os VO's Nome
-            var nome = new Nome(command.Nome, command.SobreNome);
-            //Gerando os VO's Documento
-            var documento = new Documento(command.TipoDocumento, command.NumeroDocumento);
-            //Gerando os VO's Endereco
-            var endereco = new Endereco(command.Endereco, command.Bairro, command.Cidade, command.Uf, command.CEP);
-            //Gerando os Entities Pessoa
-            var pessoa = new Pessoa(nome, documento, endereco, command.TipoEnvolvido);
-            //Gerando os Entities Apresentante 
-            var apresentante = new Apresentante(command.CodigoApresentante, pessoa);
+           // var nome = new Nome(command.Nome, command.SobreNome);
+           // //Gerando os VO's Documento
+           // var documento = new Documento(command.TipoDocumento, command.NumeroDocumento);
+           // //Gerando os VO's Endereco
+           // var endereco = new Endereco(command.Endereco, command.Bairro, command.Cidade, command.Uf, command.CEP);
+           // //Gerando os Entities Pessoa
+           // //Gerando os Entities Apresentante 
+           //// var apresentante = new Apresentante(command.CodigoApresentante, pessoa);
 
-            //enviando para o repositorio para ser salvo.
-            //_repository.Save(apresentante);
+           // //enviando para o repositorio para ser salvo.
+           // //_repository.Save(apresentante);
 
-            _repository.Save(apresentante);
-
+           // _repository.Add(apresentante);
+            
             return new CommandResult(true, "O Apresentante foi salvo com sucesso.");
         }
     }

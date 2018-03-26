@@ -1,6 +1,5 @@
 ﻿using BancoUnificadoCore.Domain.Enums;
 using BancoUnificadoCore.Shared.Entities;
-using Flunt.Validations;
 using System;
 using System.Collections.Generic;
 
@@ -10,7 +9,6 @@ namespace BancoUnificadoCore.Domain.Entities
     {
         //Contrutor vazio.
         public Titulo(){}
-
       
         public Titulo(string protocolo, DateTime dataProtocolo, 
             int livro, int folha, DateTime dataProtesto, 
@@ -18,7 +16,7 @@ namespace BancoUnificadoCore.Domain.Entities
             DateTime dataVencimento, string especie, 
             int numero, int nossoNumero, decimal valor, 
             decimal saldo, string endosso, string aceite, 
-            bool finsFalimentares, int motivoProtesto, EAcao acao, DateTime dataAcao, int sequencial, Pessoa pessoa, Apresentante apresentante)
+            bool finsFalimentares, int motivoProtesto, EAcao acao, DateTime dataAcao, int sequencial, Apresentante apresentante, Credor credor, List<Devedor> devedor)
         {
             Protocolo = protocolo;
             DataProtocolo = dataProtocolo;
@@ -40,15 +38,11 @@ namespace BancoUnificadoCore.Domain.Entities
             Acao = acao;
             DataAcao = dataAcao;
             Sequencial = sequencial;
-            Pessoa = pessoa;
             Apresentante = apresentante;
+            Credor = credor;
 
-            AddNotifications(new Contract()
-                .Requires()
-                .IsNullOrEmpty(Protocolo, "Protocolo", "Protocolo inválido")
-                .IsNullOrEmpty(DataProtocolo.ToString(), "DataProtocolo", "Data do protocolo inválida.")
-                .IsFalse(ValidateData(DataProtesto, DataProtocolo), "DataProtesto", "A data do protesto não pode ser menor que a data de apresentação.")
-                );
+            foreach (var item in devedor)
+              Devedor.Add(item);
         }
 
         public string Protocolo { get; private set; }
@@ -71,8 +65,9 @@ namespace BancoUnificadoCore.Domain.Entities
         public EAcao Acao { get; private set; }
         public DateTime DataAcao { get; private set; }
         public int Sequencial { get; private set; }
-        public Pessoa Pessoa { get; private set; }
         public Apresentante Apresentante { get; private set; }
+        public Credor Credor { get; private set; }
+        public List<Devedor> Devedor { get; private set; }
 
         public bool ValidateData(DateTime DataProtesto, DateTime DataApresentacao)
         {

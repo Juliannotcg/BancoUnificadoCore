@@ -7,19 +7,16 @@ using System.Text;
 
 namespace BancoUnificadoCore.Infrastructure.Maps
 {
-    public class PessoaMap : IEntityTypeConfiguration<Pessoa>
+    public class CargaDiariaMap : BaseMap<CargaDiaria>
     {
-        public void Configure(EntityTypeBuilder<Pessoa> builder)
+        public override void Configure(EntityTypeBuilder<CargaDiaria> builder)
         {
+            builder.ToTable("CargaDiaria");
+
             builder.Property(c => c.Id)
                 .HasColumnName("Id");
-
-            builder.Property(c => c.TipoEnvolvido)
-           .IsRequired();
-
-            builder.OwnsOne(c => c.Nome);
-            builder.OwnsOne(c => c.Documento);
-            builder.OwnsOne(c => c.Endereco);
+            
+            base.Configure(builder);
         }
     }
 }

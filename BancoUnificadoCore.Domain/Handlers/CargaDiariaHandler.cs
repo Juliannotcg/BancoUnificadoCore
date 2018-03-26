@@ -4,14 +4,11 @@ using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Shared.Commands;
 using BancoUnificadoCore.Shared.Handlers;
-using Flunt.Notifications;
-using System;
+using System.Collections.Generic;
 
 namespace BancoUnificadoCore.Domain.Handlers
 {
-    public class CargaDiariaHandler :
-        Notifiable,
-        IHandler<CommandCreateCargaDiaria>
+    public class CargaDiariaHandler : CommandCreateCargaDiaria
     {
         private readonly ICargaDiariaRepository _repository;
 
@@ -22,31 +19,21 @@ namespace BancoUnificadoCore.Domain.Handlers
 
         public ICommandResult Handle(CommandCreateCargaDiaria command)
         {
-            command.Validate();
-            if (command.Invalid)
-            {
-                AddNotifications(command);
-                return new CommandResult(false, "Não foi possível gerar a carga diária.");
-            }
 
-            if (!command.ValidateDates())
-            {
-                AddNotifications(command);
-                return new CommandResult(false, "Não foi possível gerar a carga diária.");
-            }
+            //Gerando credor
+            var credor = new Credor(command.Credor.Nome, command.Credor.Documento, command.Credor.Endereco);
 
-            //Gerando os VO's Nome
-            var nome = new Nome(command.Nome, command.SobreNome);
-            //Gerando os VO's Documento
-            var documento = new Documento(command.TipoDocumento, command.NumeroDocumento);
-            //Gerando os VO's Endereco
-            var endereco = new Endereco(command.Endereco, command.Bairro, command.Cidade, command.Uf, command.CEP);
-            //Gerando os Entities Pessoa
-            var pessoa = new Pessoa(nome, documento, endereco, command.TipoEnvolvido);
+            //Gerando devedor
+            var devedor = new List<Devedor>();
+            foreach (var item in command.Devedor)
+                devedor.Add(item);
+
             //Gerando os Entities Apresentante 
-            var apresentante = new Apresentante(command.CodigoApresentante, pessoa);
+            var apresentante = new Apresentante(command.Apresentante.CodigoApresentante, command.Apresentante.Nome, command.Apresentante.Documento, command.Apresentante.Endereco);
+            
             //Gerando os Entities Cartorio
             var cartorio = new Cartorio(command.CodigoCartorio);
+            
             //Gerando os Entities Titulo
             var titulo = new Titulo(command.Protocolo,
                 command.DataProtocolo,
@@ -68,14 +55,15 @@ namespace BancoUnificadoCore.Domain.Handlers
                 command.Acao,
                 command.DataAcao,
                 command.Sequencial,
-                pessoa,
-                apresentante);
+                apresentante,
+                credor,
+                devedor);
 
             //Gerando a Entitie CargaDiaria
             var cargaDiaria = new CargaDiaria(titulo);
 
             //enviando para o repositorio para ser salvo.
-            _repository.Save(cargaDiaria);
+            _repository.Add(cargaDiaria);
 
             return new CommandResult(true, "Carga diária processada com sucesso.");
         }

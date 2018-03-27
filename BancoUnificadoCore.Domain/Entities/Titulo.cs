@@ -7,14 +7,14 @@ namespace BancoUnificadoCore.Domain.Entities
 {
     public class Titulo : Entity
     {
-              
         public Titulo(string protocolo, DateTime dataProtocolo, 
             int livro, int folha, DateTime dataProtesto, 
             int numeroProtesto, DateTime dataEmissao, 
             DateTime dataVencimento, string especie, 
             int numero, int nossoNumero, decimal valor, 
             decimal saldo, string endosso, string aceite, 
-            bool finsFalimentares, int motivoProtesto, EAcao acao, DateTime dataAcao, int sequencial, Apresentante apresentante, Credor credor, List<Devedor> devedor)
+            bool finsFalimentares, int motivoProtesto, EAcao acao,
+            DateTime dataAcao, int sequencial, Apresentante apresentante, Credor credor, List<Devedor> devedor)
         {
             Protocolo = protocolo;
             DataProtocolo = dataProtocolo;
@@ -66,13 +66,5 @@ namespace BancoUnificadoCore.Domain.Entities
         public Apresentante Apresentante { get; private set; }
         public Credor Credor { get; private set; }
         public List<Devedor> Devedor { get; private set; }
-
-        public bool ValidateData(DateTime DataProtesto, DateTime DataApresentacao)
-        {
-            if (DataProtesto <= DataApresentacao)
-                return false;
-            else
-                return true;
-        }
     }
 }

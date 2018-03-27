@@ -35,7 +35,6 @@ namespace BancoUnificadoCore.Domain.Commands
         public DateTime DataAcao { get; set; }
 
         public EAcao Acao { get; set; }
-        public ETipoDocumento TipoDocumento { get; set; }
         
         public bool ValidateDates()
         {

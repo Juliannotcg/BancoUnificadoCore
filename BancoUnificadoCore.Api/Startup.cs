@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
 using BancoUnificadoCore.Domain.Handlers;
@@ -10,6 +11,7 @@ using BancoUnificadoCore.Infrastructure.Repository.EntityFramework;
 using Elmah.Io.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -29,9 +31,19 @@ namespace BancoUnificadoCore.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.Configure<GzipCompressionProviderOptions>(
+                options => options.Level = CompressionLevel.Optimal);
 
-            services.AddResponseCompression();
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<GzipCompressionProvider>();
+            });
+
+            services.AddMvc().AddJsonOptions(opcoes =>
+            {
+                opcoes.SerializerSettings.NullValueHandling =
+                    Newtonsoft.Json.NullValueHandling.Ignore;
+            });
 
             services.AddScoped<ContextEntity, ContextEntity>();
             services.AddScoped<ContextDapper, ContextDapper>();

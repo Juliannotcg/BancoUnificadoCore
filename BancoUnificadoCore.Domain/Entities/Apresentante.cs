@@ -6,7 +6,7 @@ namespace BancoUnificadoCore.Domain.Entities
 {
     public class Apresentante : Entity
     {
-        public Apresentante(string codigoApresentante ,Nome nome, Documento documento, Endereco endereco)
+        public Apresentante(string codigoApresentante , Nome nome, Documento documento, Endereco endereco)
         {
             CodigoApresentante = codigoApresentante;
             Nome = nome;

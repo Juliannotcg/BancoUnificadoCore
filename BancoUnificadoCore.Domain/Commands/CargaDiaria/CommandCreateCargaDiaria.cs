@@ -1,4 +1,5 @@
-﻿using BancoUnificadoCore.Domain.Entities;
+﻿using BancoUnificadoCore.Domain.Commands.Credor;
+using BancoUnificadoCore.Domain.Entities;
 using BancoUnificadoCore.Domain.Enums;
 using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Shared.Commands;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 
 namespace BancoUnificadoCore.Domain.Commands
 {
-    public class CommandCreateCargaDiaria 
+    public class CommandCreateCargaDiaria : ICommand
     {
         public string Protocolo { get; set; }
         public int Livro { get; set; }
@@ -24,9 +25,9 @@ namespace BancoUnificadoCore.Domain.Commands
         public int MotivoProtesto { get; set; }
         public int Sequencial { get; set; }
         public int CodigoCartorio { get; set; }
-        public Apresentante Apresentante { get; set; }
-        public Credor Credor { get; set; }
-        public List<Devedor> Devedor { get; set; }
+        public CommandApresentante Apresentante { get; set; }
+        public CommandCredor Credor { get; set; }
+        public List<CommandDevedor> Devedor { get; set; }
 
         public DateTime DataProtocolo { get; set; }
         public DateTime DataProtesto { get; set; }
@@ -35,7 +36,12 @@ namespace BancoUnificadoCore.Domain.Commands
         public DateTime DataAcao { get; set; }
 
         public EAcao Acao { get; set; }
-        
+
+        public void Validate()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool ValidateDates()
         {
             if (DataProtocolo <= DataProtesto)

@@ -24,7 +24,7 @@ namespace BancoUnificadoCore.Domain.Handlers
             command.IsValid();
             var nome = new Nome(command.Nome, command.SobreNome);
             var documento = new Documento(command.TipoDocumento, command.NumeroDocumento);
-            var endereco = new Endereco(command.Endereco, command.Bairro, command.Cidade, command.Uf, command.CEP);
+            var endereco = new Endereco(command.Endereco, command.Bairro, command.CEP, command.Cidade, command.Uf);
             var apresentante = new Apresentante(command.CodigoApresentante, nome, documento, endereco);
 
             _repository.Add(apresentante);

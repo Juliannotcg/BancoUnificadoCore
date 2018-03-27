@@ -23,7 +23,8 @@ namespace BancoUnificadoCore.Infrastructure.Repository.EntityFramework
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _context.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         public IQueryable<CargaDiaria> GetAll()

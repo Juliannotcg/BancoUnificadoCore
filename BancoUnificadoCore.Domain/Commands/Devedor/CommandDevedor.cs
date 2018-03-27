@@ -1,7 +1,5 @@
 ﻿using BancoUnificadoCore.Domain.Enums;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BancoUnificadoCore.Domain.Commands
 {
@@ -19,7 +17,7 @@ namespace BancoUnificadoCore.Domain.Commands
 
         public override bool IsValid()
         {
-            throw new NotImplementedException();
+            return true; ;
         }
     }
 }

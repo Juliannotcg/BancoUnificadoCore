@@ -20,7 +20,7 @@ namespace BancoUnificadoCore.Domain.Handlers
             command.IsValid();
             var nome = new Nome(command.Nome, command.SobreNome);
             var documento = new Documento(command.TipoDocumento, command.NumeroDocumento);
-            var endereco = new Endereco(command.Endereco, command.Bairro, command.CEP, command.Cidade, command.Uf);
+            var endereco = new Endereco(command.Endereco, command.Bairro, command.Cidade, command.Uf, command.CEP);
             var devedor = new Devedor(nome, documento, endereco);
 
             //enviando para o repositorio para ser salvo.

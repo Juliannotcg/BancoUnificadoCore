@@ -3,11 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BancoUnificadoCore.Domain.Commands
+namespace BancoUnificadoCore.Domain.Commands.Credor
 {
-    public class CommandApresentante : Command
+    public class CommandCredor : Command
     {
-        public string CodigoApresentante { get; set; }
         public string Nome { get; set; }
         public string SobreNome { get; set; }
         public string NumeroDocumento { get; set; }

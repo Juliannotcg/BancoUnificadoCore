@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace BancoUnificadoCore.Domain.Handlers
 {
-    public class CargaDiariaHandler : CommandCreateCargaDiaria
+    public class CargaDiariaHandler : ICommandHandler<CommandCreateCargaDiaria>
     {
         private readonly ICargaDiariaRepositoryEntity _repository;
 
@@ -19,16 +19,28 @@ namespace BancoUnificadoCore.Domain.Handlers
 
         public ICommandResult Handle(CommandCreateCargaDiaria command)
         {
+            //Gerando Apresentante
+            var nomeApresentante = new Nome(command.Apresentante.Nome, command.Apresentante.SobreNome);
+            var documentoApresentante = new Documento(command.Apresentante.TipoDocumento, command.Apresentante.NumeroDocumento);
+            var enderecoApresentante = new Endereco(command.Apresentante.Endereco, command.Apresentante.Bairro, command.Apresentante.Cidade, command.Apresentante.Uf, command.Apresentante.CEP);
+            var apresentante = new Apresentante(command.Apresentante.CodigoApresentante, nomeApresentante, documentoApresentante, enderecoApresentante);
+
             //Gerando credor
-            var credor = new Credor(command.Credor.Nome, command.Credor.Documento, command.Credor.Endereco);
+            var nomeCredor = new Nome(command.Credor.Nome, command.Credor.SobreNome);
+            var documentoCredor = new Documento(command.Credor.TipoDocumento, command.Credor.NumeroDocumento);
+            var enderecoCredor = new Endereco(command.Credor.Endereco, command.Credor.Bairro, command.Credor.Cidade, command.Credor.Uf, command.Credor.CEP);
+            var credor = new Credor(nomeCredor, documentoCredor, enderecoCredor);
 
             //Gerando devedor
             var devedor = new List<Devedor>();
             foreach (var item in command.Devedor)
-                devedor.Add(item);
-
-            //Gerando os Entities Apresentante 
-            var apresentante = new Apresentante(command.Apresentante.CodigoApresentante, command.Apresentante.Nome, command.Apresentante.Documento, command.Apresentante.Endereco);
+            {
+                var nomeDevedor = new Nome(item.Nome, item.SobreNome);
+                var documentoDevedor = new Documento(item.TipoDocumento, item.NumeroDocumento);
+                var enderecoDevedor = new Endereco(item.Endereco, item.Bairro, item.Cidade, item.Uf, item.CEP);
+                var novoDevedor = new Devedor(nomeDevedor, documentoDevedor, enderecoDevedor);
+                devedor.Add(novoDevedor);
+            }
             
             //Gerando os Entities Cartorio
             var cartorio = new Cartorio(command.CodigoCartorio);

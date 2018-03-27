@@ -6,13 +6,11 @@ namespace BancoUnificadoCore.Domain.Commands
     {
         public CommandResult(bool succes, string mensagem)
         {
-            Succes = succes;
-            Mensagem = mensagem;
+            Success = succes;
+            Message = mensagem;
         }
 
-        public bool Succes { get; set; }
-        public string Mensagem { get; set; }
-        public bool Success { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public string Message { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public bool Success { get; set; }
+        public string Message { get; set; }
     }
 }

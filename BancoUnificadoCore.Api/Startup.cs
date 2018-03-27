@@ -59,7 +59,8 @@ namespace BancoUnificadoCore.Api
             services.AddTransient<IDevedorRepositoryEntity, DevedorRepositoryEntity>();
 
             services.AddTransient<ICargaDiariaRepositoryEntity, CargaDiariaRepositoryEntity>();
-            
+            services.AddTransient<ICargaDiariaRepositoryDapper, CargaDiariaRepositoryDapper>();
+
             services.AddSwaggerGen(x =>
             {
                 x.SwaggerDoc("v1", new Info { Title = "BancoUnificadoCore", Version = "v1" });

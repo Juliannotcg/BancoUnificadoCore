@@ -1,7 +1,6 @@
-CREATE PROCEDURE spCreateApresentante
+CREATE PROCEDURE spCreateTitulo
     @Id UNIQUEIDENTIFIER,
-    @CodigoApresentante VARCHAR(160),
-	@Documento VARCHAR(50),
+	@Acao INT,
 	@TipoDocumento VARCHAR(10),
 	@Bairro VARCHAR(50),
 	@CEP VARCHAR(20),
@@ -11,9 +10,8 @@ CREATE PROCEDURE spCreateApresentante
 	@Nome VARCHAR(150),
 	@SobreNome VARCHAR(150)
 AS
-    INSERT INTO [Apresentante] (
+    INSERT INTO [Credor] (
         [Id], 
-        [CodigoApresentante], 
         [Documento],
 		[TipoDocumento],
 		[Bairro],
@@ -25,7 +23,6 @@ AS
 		[SobreNome]
     ) VALUES (
         @Id,
-		@CodigoApresentante,
         @Documento,
 		@TipoDocumento,
 		@Bairro,

@@ -10,9 +10,9 @@ namespace BancoUnificadoCore.Domain.Handlers
 {
     public class CargaDiariaHandler : ICommandHandler<CommandCreateCargaDiaria>
     {
-        private readonly ICargaDiariaRepositoryEntity _repository;
+        private readonly ICargaDiariaRepositoryDapper _repository;
 
-        public CargaDiariaHandler(ICargaDiariaRepositoryEntity repository)
+        public CargaDiariaHandler(ICargaDiariaRepositoryDapper repository)
         {
             _repository = repository;
         }
@@ -74,7 +74,7 @@ namespace BancoUnificadoCore.Domain.Handlers
             var cargaDiaria = new CargaDiaria(titulo);
 
             //enviando para o repositorio para ser salvo.
-            _repository.Add(cargaDiaria);
+            _repository.Save(cargaDiaria);
 
             return new CommandResult(true, "Carga diária processada com sucesso.");
         }

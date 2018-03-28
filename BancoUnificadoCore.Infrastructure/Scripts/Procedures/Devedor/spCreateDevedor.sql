@@ -1,5 +1,6 @@
 CREATE PROCEDURE spCreateDevedor
     @Id UNIQUEIDENTIFIER,
+	@TituloId UNIQUEIDENTIFIER,
 	@Documento VARCHAR(50),
 	@TipoDocumento VARCHAR(10),
 	@Bairro VARCHAR(50),
@@ -12,6 +13,7 @@ CREATE PROCEDURE spCreateDevedor
 AS
     INSERT INTO [Devedor] (
         [Id], 
+		[TituloId],
         [Documento],
 		[TipoDocumento],
 		[Bairro],
@@ -23,6 +25,7 @@ AS
 		[SobreNome]
     ) VALUES (
         @Id,
+		@TituloId,
         @Documento,
 		@TipoDocumento,
 		@Bairro,

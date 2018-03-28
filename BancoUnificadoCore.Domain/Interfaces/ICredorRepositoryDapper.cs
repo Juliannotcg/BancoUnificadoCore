@@ -1,10 +1,11 @@
 ﻿using BancoUnificadoCore.Domain.Entities;
+using BancoUnificadoCore.Domain.Queries;
 
 namespace BancoUnificadoCore.Domain.Interfaces
 {
     public interface ICredorRepositoryDapper
     {
         void Save(Credor credor);
-        bool CheckCredor (string documento);
+        GetCredorResult CheckCredor(string documento);
     }
 }

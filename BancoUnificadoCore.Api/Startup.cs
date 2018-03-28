@@ -47,6 +47,12 @@ namespace BancoUnificadoCore.Api
 
             services.AddScoped<ContextEntity, ContextEntity>();
             services.AddScoped<ContextDapper, ContextDapper>();
+            services.AddScoped<TituloRepositoryDapper, TituloRepositoryDapper>();
+            services.AddScoped<CargaDiariaRepositoryDapper, CargaDiariaRepositoryDapper>();
+            services.AddScoped<ApresentanteRepositoryDapper, ApresentanteRepositoryDapper>();
+            services.AddScoped<DevedorRepositoryDapper, DevedorRepositoryDapper>();
+            services.AddScoped<CredorRepositoryDapper, CredorRepositoryDapper>();
+
 
             services.AddTransient<CargaDiariaHandler, CargaDiariaHandler>();
             services.AddTransient<ApresentanteHandler, ApresentanteHandler>();
@@ -60,6 +66,10 @@ namespace BancoUnificadoCore.Api
 
             services.AddTransient<ICargaDiariaRepositoryEntity, CargaDiariaRepositoryEntity>();
             services.AddTransient<ICargaDiariaRepositoryDapper, CargaDiariaRepositoryDapper>();
+
+            services.AddTransient<ICredorRepositoryDapper, CredorRepositoryDapper>();
+
+            services.AddTransient<ITituloRepositoryDapper, TituloRepositoryDapper>();
 
             services.AddSwaggerGen(x =>
             {

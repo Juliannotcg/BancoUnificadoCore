@@ -1,6 +1,6 @@
-CREATE PROCEDURE spCreateTitulo
-    @Id UNIQUEIDENTIFIER,
-	@Acao INT,
+CREATE PROCEDURE spCreateCredor
+	@Id UNIQUEIDENTIFIER,
+	@Documento VARCHAR(50),
 	@TipoDocumento VARCHAR(10),
 	@Bairro VARCHAR(50),
 	@CEP VARCHAR(20),

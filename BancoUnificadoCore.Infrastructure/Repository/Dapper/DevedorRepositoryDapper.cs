@@ -1,4 +1,5 @@
-﻿using BancoUnificadoCore.Domain.Interfaces;
+﻿using BancoUnificadoCore.Domain.Entities;
+using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Domain.Queries;
 using BancoUnificadoCore.Infrastructure.Context;
 using Dapper;
@@ -46,6 +47,29 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
                        new { DocumentoDevedor = documento },
                       commandType: CommandType.StoredProcedure)
                       .FirstOrDefault();
+        }
+
+        public void Save(Titulo titulo)
+        {
+            foreach (var item in titulo.Devedor)
+            {
+                _context.Connection.Execute("spCreateDevedor",
+                 new
+                 {
+                     Id = item.Id,
+                     TituloId = titulo.Id,
+                     Documento = item.Documento.NumeroDocumento,
+                     TipoDocumento = item.Documento.TipoDocumento,
+                     Bairro = item.Endereco.Bairro,
+                     CEP = item.Endereco.Cep,
+                     Cidade = item.Endereco.Cidade,
+                     Logradouro = item.Endereco.Logradouro,
+                     UF = item.Endereco.Uf,
+                     Nome = item.Nome.PrimeiroNome,
+                     SobreNome = item.Nome.SobreNome
+                 }, commandType: CommandType.StoredProcedure);
+            }
+         
         }
     }
 }

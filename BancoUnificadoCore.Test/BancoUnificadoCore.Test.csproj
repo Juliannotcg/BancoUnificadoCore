@@ -18,4 +18,9 @@
     <ProjectReference Include="..\BancoUnificadoCore.Shared\BancoUnificadoCore.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dapper\" />
+    <Folder Include="Api\" />
+  </ItemGroup>
+
 </Project>

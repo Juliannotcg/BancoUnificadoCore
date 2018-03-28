@@ -7,5 +7,9 @@ namespace BancoUnificadoCore.Domain.Validations.CargaDiaria
 {
     public class NewCreateCargaDiariaCommandValidation : CargaDiariaValidation<CommandCreateCargaDiaria>
     {
+        public NewCreateCargaDiariaCommandValidation()
+        {
+            ValidateCargaDiaria();
+        }
     }
 }

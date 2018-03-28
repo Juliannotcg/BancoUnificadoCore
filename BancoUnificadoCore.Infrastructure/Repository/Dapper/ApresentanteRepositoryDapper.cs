@@ -67,15 +67,15 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
           }, commandType: CommandType.StoredProcedure);
         }
 
-        public bool CheckApresentante(string documento)
+        public GetApresentanteResult CheckApresentante(string documento)
         {
             return _context
-                .Connection
-                .Query<bool>(
-                    "spCheckApresentante",
-                    new { Documento = documento },
-                    commandType: CommandType.StoredProcedure)
-                .FirstOrDefault();
+                 .Connection
+                 .Query<GetApresentanteResult>(
+                     "spCheckApresentante",
+                     new { Documento = documento },
+                     commandType: CommandType.StoredProcedure)
+                 .FirstOrDefault();
         }
     }
 }

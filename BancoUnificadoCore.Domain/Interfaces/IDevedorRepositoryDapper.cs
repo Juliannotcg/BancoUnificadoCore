@@ -1,4 +1,5 @@
-﻿using BancoUnificadoCore.Domain.Queries;
+﻿using BancoUnificadoCore.Domain.Entities;
+using BancoUnificadoCore.Domain.Queries;
 using System.Collections.Generic;
 
 namespace BancoUnificadoCore.Domain.Interfaces
@@ -8,5 +9,6 @@ namespace BancoUnificadoCore.Domain.Interfaces
         IEnumerable<GetDevedorResult> GetAll();
         GetDevedorResult GetByDocumentoDevedor(string documento);
         bool CheckDevedor (string documento);
+        void Save(Titulo titulo);
     }
 }

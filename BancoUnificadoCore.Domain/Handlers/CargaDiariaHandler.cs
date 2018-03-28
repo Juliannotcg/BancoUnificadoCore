@@ -4,6 +4,7 @@ using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Shared.Commands;
 using BancoUnificadoCore.Shared.Handlers;
+using System;
 using System.Collections.Generic;
 
 namespace BancoUnificadoCore.Domain.Handlers
@@ -11,14 +12,18 @@ namespace BancoUnificadoCore.Domain.Handlers
     public class CargaDiariaHandler : ICommandHandler<CommandCreateCargaDiaria>
     {
         private readonly ICargaDiariaRepositoryDapper _repository;
+        private readonly IApresentanteRepositoryDapper _repositoryApresentante;
 
-        public CargaDiariaHandler(ICargaDiariaRepositoryDapper repository)
+        public CargaDiariaHandler(ICargaDiariaRepositoryDapper repository, IApresentanteRepositoryDapper repositoryApresentante)
         {
             _repository = repository;
+            _repositoryApresentante = repositoryApresentante;
         }
 
         public ICommandResult Handle(CommandCreateCargaDiaria command)
         {
+            command.Valid();
+            
             //Gerando Apresentante
             var nomeApresentante = new Nome(command.Apresentante.Nome, command.Apresentante.SobreNome);
             var documentoApresentante = new Documento(command.Apresentante.TipoDocumento, command.Apresentante.NumeroDocumento);
@@ -73,7 +78,7 @@ namespace BancoUnificadoCore.Domain.Handlers
             //enviando para o repositorio para ser salvo.
             _repository.Save(cargaDiaria);
 
-            return new CommandResult(true, "Carga diária processada com sucesso.");
+            return new CommandCreateCargaDiariaResult(true, "Carga diária processada com sucesso.");
         }
     }
 }

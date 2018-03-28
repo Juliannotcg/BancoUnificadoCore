@@ -1,6 +1,5 @@
 ﻿using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Shared.Entities;
-using System;
 
 namespace BancoUnificadoCore.Domain.Entities
 {

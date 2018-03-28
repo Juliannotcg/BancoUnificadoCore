@@ -11,6 +11,6 @@ namespace BancoUnificadoCore.Domain.Interfaces
         IEnumerable<GetApresentanteResult> GetAll();
         GetApresentanteResult GetByCodigoApresentante(string codigo);
         void Save(Apresentante apresentante);
-        bool CheckApresentante (string documento);
+        GetApresentanteResult CheckApresentante (string documento);
     }
 }

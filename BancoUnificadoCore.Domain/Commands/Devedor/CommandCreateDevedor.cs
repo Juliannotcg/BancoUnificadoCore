@@ -8,7 +8,7 @@ namespace BancoUnificadoCore.Domain.Commands
     {
         //public override bool IsValid()
         //{
-        //    ValidationResult = new NewCreateApresentanteCommandValidation().Validate(this);
+        //    ValidationResult = new NewCreateApresentanteCommandValidation().Valid(this);
         //    return ValidationResult.IsValid;
         //}
     }

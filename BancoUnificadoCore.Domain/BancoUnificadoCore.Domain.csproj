@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Queries\Credor\" />
     <Folder Include="Queries\CargaDiaria\" />
     <Folder Include="Queries\Titulo\" />
   </ItemGroup>

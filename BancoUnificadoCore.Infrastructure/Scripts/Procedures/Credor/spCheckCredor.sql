@@ -1,7 +1,7 @@
-CREATE PROCEDURE spCheckApresentante
+CREATE PROCEDURE spCheckCredor
 	@Documento VARCHAR(14)
 AS
   SELECT [Id]
-	FROM [Apresentante]
+	FROM [Credor]
 WHERE [Documento] = @Documento
 	

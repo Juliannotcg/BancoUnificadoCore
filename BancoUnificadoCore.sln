@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - BancoUnificadoCore.Doma
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - BancoUnificadoCore.Shared", "3 - BancoUnificadoCore.Shared", "{0CFFDA5A-8974-4FFB-9ECD-FF71ECC13B53}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - BancoUnificadoCore.Test", "4 - BancoUnificadoCore.Test", "{F3636E9C-66C2-49FB-9619-9BD529C4C12C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - BancoUnificadoCore.Test", "5 - BancoUnificadoCore.Test", "{F3636E9C-66C2-49FB-9619-9BD529C4C12C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BancoUnificadoCore.Domain", "BancoUnificadoCore.Domain\BancoUnificadoCore.Domain.csproj", "{733C67B4-A7F4-48C4-87E1-BA52D947274F}"
 EndProject
@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BancoUnificadoCore.Shared",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BancoUnificadoCore.Test", "BancoUnificadoCore.Test\BancoUnificadoCore.Test.csproj", "{D2DA3363-9B42-4E66-9F8E-5C62E0224033}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - BancoUnificadoCore.Infrastructure", "5 - BancoUnificadoCore.Infrastructure", "{FBED4E4E-6B2F-4B44-AA2E-4678C8E82B01}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - BancoUnificadoCore.Infrastructure", "4 - BancoUnificadoCore.Infrastructure", "{FBED4E4E-6B2F-4B44-AA2E-4678C8E82B01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BancoUnificadoCore.Infrastructure", "BancoUnificadoCore.Infrastructure\BancoUnificadoCore.Infrastructure.csproj", "{828FC86B-6769-47C0-9D40-928020958C7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BancoUnificadoCore.Infrastructure", "BancoUnificadoCore.Infrastructure\BancoUnificadoCore.Infrastructure.csproj", "{828FC86B-6769-47C0-9D40-928020958C7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

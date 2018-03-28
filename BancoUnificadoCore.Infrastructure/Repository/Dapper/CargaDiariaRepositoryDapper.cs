@@ -22,7 +22,7 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
         {
             _tituloRepository.Save(cargaDiaria.titulo);
 
-          _context.Connection.Execute("spCreateApresentante",
+          _context.Connection.Execute("spCreateCargaDiaria",
           new
           {
               Id = cargaDiaria.Id,

@@ -53,7 +53,6 @@ namespace BancoUnificadoCore.Api
             services.AddScoped<DevedorRepositoryDapper, DevedorRepositoryDapper>();
             services.AddScoped<CredorRepositoryDapper, CredorRepositoryDapper>();
 
-
             services.AddTransient<CargaDiariaHandler, CargaDiariaHandler>();
             services.AddTransient<ApresentanteHandler, ApresentanteHandler>();
             services.AddTransient<DevedorHandler, DevedorHandler>();

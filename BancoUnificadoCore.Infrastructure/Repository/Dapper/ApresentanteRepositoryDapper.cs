@@ -1,4 +1,5 @@
-﻿using BancoUnificadoCore.Domain.Interfaces;
+﻿using BancoUnificadoCore.Domain.Entities;
+using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Domain.Queries;
 using BancoUnificadoCore.Infrastructure.Context;
 using Dapper;
@@ -6,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 
 namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
 {
@@ -46,6 +46,36 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
                          new { CodigoApresentante = codigo },
                         commandType: CommandType.StoredProcedure)
                    .FirstOrDefault();
+        }
+
+        public void Save(Apresentante apresentante)
+        {
+            _context.Connection.Execute("spCreateApresentante",
+          new
+          {
+              Id = apresentante.Id,
+              CodigoApresentante = apresentante.CodigoApresentante,
+              Documento = apresentante.Documento.NumeroDocumento,
+              TipoDocumento = apresentante.Documento.TipoDocumento,
+              Bairro = apresentante.Endereco.Bairro,
+              CEP = apresentante.Endereco.Cep,
+              Cidade = apresentante.Endereco.Cidade,
+              Logradouro = apresentante.Endereco.Logradouro,
+              UF = apresentante.Endereco.Uf,
+              Nome = apresentante.Nome.PrimeiroNome,
+              SobreNome = apresentante.Nome.SobreNome
+          }, commandType: CommandType.StoredProcedure);
+        }
+
+        public bool CheckApresentante(string documento)
+        {
+            return _context
+                .Connection
+                .Query<bool>(
+                    "spCheckApresentante",
+                    new { Documento = documento },
+                    commandType: CommandType.StoredProcedure)
+                .FirstOrDefault();
         }
     }
 }

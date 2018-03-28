@@ -17,11 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BancoUnificadoCore.Domain",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BancoUnificadoCore.Shared", "BancoUnificadoCore.Shared\BancoUnificadoCore.Shared.csproj", "{966D6680-0758-41BC-BA4D-2726AB24F579}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BancoUnificadoCore.Test", "BancoUnificadoCore.Test\BancoUnificadoCore.Test.csproj", "{D2DA3363-9B42-4E66-9F8E-5C62E0224033}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - BancoUnificadoCore.Infrastructure", "4 - BancoUnificadoCore.Infrastructure", "{FBED4E4E-6B2F-4B44-AA2E-4678C8E82B01}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BancoUnificadoCore.Infrastructure", "BancoUnificadoCore.Infrastructure\BancoUnificadoCore.Infrastructure.csproj", "{828FC86B-6769-47C0-9D40-928020958C7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BancoUnificadoCore.Tests", "BancoUnificadoCore.Tests\BancoUnificadoCore.Tests.csproj", "{BB0A2FCC-824C-4DFA-97BA-14097B82D835}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,14 +41,14 @@ Global
 		{966D6680-0758-41BC-BA4D-2726AB24F579}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{966D6680-0758-41BC-BA4D-2726AB24F579}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{966D6680-0758-41BC-BA4D-2726AB24F579}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D2DA3363-9B42-4E66-9F8E-5C62E0224033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2DA3363-9B42-4E66-9F8E-5C62E0224033}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2DA3363-9B42-4E66-9F8E-5C62E0224033}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2DA3363-9B42-4E66-9F8E-5C62E0224033}.Release|Any CPU.Build.0 = Release|Any CPU
 		{828FC86B-6769-47C0-9D40-928020958C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{828FC86B-6769-47C0-9D40-928020958C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{828FC86B-6769-47C0-9D40-928020958C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{828FC86B-6769-47C0-9D40-928020958C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB0A2FCC-824C-4DFA-97BA-14097B82D835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB0A2FCC-824C-4DFA-97BA-14097B82D835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB0A2FCC-824C-4DFA-97BA-14097B82D835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB0A2FCC-824C-4DFA-97BA-14097B82D835}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,8 +57,8 @@ Global
 		{2EB78218-5A55-42A9-B051-49AE7D362672} = {FE35F98C-2BDC-488B-9B0D-977F51594AA6}
 		{733C67B4-A7F4-48C4-87E1-BA52D947274F} = {C9B40517-F756-4D18-9D39-D2E6816559E1}
 		{966D6680-0758-41BC-BA4D-2726AB24F579} = {0CFFDA5A-8974-4FFB-9ECD-FF71ECC13B53}
-		{D2DA3363-9B42-4E66-9F8E-5C62E0224033} = {F3636E9C-66C2-49FB-9619-9BD529C4C12C}
 		{828FC86B-6769-47C0-9D40-928020958C7C} = {FBED4E4E-6B2F-4B44-AA2E-4678C8E82B01}
+		{BB0A2FCC-824C-4DFA-97BA-14097B82D835} = {F3636E9C-66C2-49FB-9619-9BD529C4C12C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {45AA187D-505E-43E6-A424-26D14445E2A2}

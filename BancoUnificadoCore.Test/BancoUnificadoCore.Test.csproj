@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Dapper\" />
-    <Folder Include="Api\" />
   </ItemGroup>
 
 </Project>

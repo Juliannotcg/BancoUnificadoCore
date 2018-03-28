@@ -7,5 +7,6 @@ namespace BancoUnificadoCore.Domain.Interfaces
     {
         IEnumerable<GetDevedorResult> GetAll();
         GetDevedorResult GetByDocumentoDevedor(string documento);
+        bool CheckDevedor (string documento);
     }
 }

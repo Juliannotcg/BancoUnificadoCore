@@ -2,11 +2,9 @@
 using BancoUnificadoCore.Domain.Queries;
 using BancoUnificadoCore.Infrastructure.Context;
 using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 
 namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
 {
@@ -17,6 +15,17 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
         public DevedorRepositoryDapper(ContextDapper context)
         {
             _context = context;
+        }
+
+        public bool CheckDevedor(string documento)
+        {
+            return _context
+                .Connection
+                .Query<bool>(
+                    "spCheckDevedor",
+                    new { Documento = documento },
+                    commandType: CommandType.StoredProcedure)
+                .FirstOrDefault();
         }
 
         public IEnumerable<GetDevedorResult> GetAll()

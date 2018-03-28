@@ -42,9 +42,6 @@ namespace BancoUnificadoCore.Domain.Handlers
                 devedor.Add(novoDevedor);
             }
             
-            //Gerando os Entities Cartorio
-            var cartorio = new Cartorio(command.CodigoCartorio);
-            
             //Gerando os Entities Titulo
             var titulo = new Titulo(command.Protocolo,
                 command.DataProtocolo,

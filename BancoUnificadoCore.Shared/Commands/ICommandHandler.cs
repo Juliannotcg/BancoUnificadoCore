@@ -1,6 +1,6 @@
 ﻿namespace BancoUnificadoCore.Shared.Commands
 {
-    public interface ICommandHandler<T> where T : ICommand
+    public interface ICommandHandler<T>
     {
         ICommandResult Handle(T command);
     }

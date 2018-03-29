@@ -4,6 +4,7 @@ using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Shared.Commands;
 using BancoUnificadoCore.Shared.Handlers;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 
@@ -22,8 +23,11 @@ namespace BancoUnificadoCore.Domain.Handlers
 
         public ICommandResult Handle(CommandCreateCargaDiaria command)
         {
-            command.Valid();
-            
+            //if (!command.IsValid())
+            //{
+            //   return new CommandCreateCargaDiariaResult(false, command.ValidationResult.Errors);
+            //}
+
             //Gerando Apresentante
             var nomeApresentante = new Nome(command.Apresentante.Nome, command.Apresentante.SobreNome);
             var documentoApresentante = new Documento(command.Apresentante.TipoDocumento, command.Apresentante.NumeroDocumento);

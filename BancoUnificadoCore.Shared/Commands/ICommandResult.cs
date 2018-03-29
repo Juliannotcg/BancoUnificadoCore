@@ -1,4 +1,6 @@
-﻿namespace BancoUnificadoCore.Shared.Commands
+﻿using System.Collections.Generic;
+
+namespace BancoUnificadoCore.Shared.Commands
 {
     public interface ICommandResult
     {

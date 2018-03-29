@@ -4,6 +4,10 @@ namespace BancoUnificadoCore.Domain.Commands
 {
     public class CommandResult : ICommandResult
     {
+        public CommandResult()
+        {
+
+        }
         public CommandResult(bool succes, string mensagem)
         {
             Success = succes;

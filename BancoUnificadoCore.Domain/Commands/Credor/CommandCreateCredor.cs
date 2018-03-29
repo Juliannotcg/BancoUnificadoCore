@@ -1,13 +1,11 @@
 ﻿using BancoUnificadoCore.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using BancoUnificadoCore.Shared.Commands;
+using Flunt.Notifications;
 
-namespace BancoUnificadoCore.Domain.Commands
+namespace BancoUnificadoCore.Domain.Commands.Credor
 {
-    public class CommandApresentante : Command
+    public class CommandCreateCredor : Notifiable, ICommand
     {
-        public string CodigoApresentante { get; set; }
         public string Nome { get; set; }
         public string SobreNome { get; set; }
         public string NumeroDocumento { get; set; }
@@ -18,9 +16,9 @@ namespace BancoUnificadoCore.Domain.Commands
         public string Uf { get; set; }
         public string CEP { get; set; }
 
-        public override bool IsValid()
+        public void Validate()
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
     }
 }

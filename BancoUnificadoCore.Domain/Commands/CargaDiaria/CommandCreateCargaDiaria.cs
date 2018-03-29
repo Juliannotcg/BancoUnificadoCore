@@ -1,20 +1,19 @@
-﻿using BancoUnificadoCore.Domain.Commands.CargaDiaria;
-using BancoUnificadoCore.Domain.Commands.Credor;
-using BancoUnificadoCore.Domain.Enums;
-using BancoUnificadoCore.Domain.Validations.CargaDiaria;
+﻿using BancoUnificadoCore.Domain.Commands.Titulo;
 using BancoUnificadoCore.Shared.Commands;
-using FluentValidation.Results;
-using System;
-using System.Collections.Generic;
+using Flunt.Notifications;
+using Flunt.Validations;
 
 namespace BancoUnificadoCore.Domain.Commands
 {
-    public class CommandCreateCargaDiaria : CommandCargaDiaria
+    public class CommandCreateCargaDiaria : Notifiable, ICommand
     {
-        public override bool IsValid()
+        public CommandCreateTitulo Titulo { get; set; }
+
+        public void Validate()
         {
-            ValidationResult = new NewCreateCargaDiariaCommandValidation().Validate(this);
-            return ValidationResult.IsValid;
+            AddNotifications(new Contract()
+                .Requires()
+            );
         }
     }
 }

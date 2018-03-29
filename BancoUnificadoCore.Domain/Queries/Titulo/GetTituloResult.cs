@@ -1,12 +1,11 @@
-﻿using BancoUnificadoCore.Domain.Commands.Credor;
-using BancoUnificadoCore.Domain.Enums;
+﻿using BancoUnificadoCore.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BancoUnificadoCore.Domain.Commands.CargaDiaria
+namespace BancoUnificadoCore.Domain.Queries.Titulo
 {
-    public class CommandCargaDiaria : Command
+    public class GetTituloResult
     {
         public string Protocolo { get; set; }
         public int Livro { get; set; }
@@ -23,9 +22,9 @@ namespace BancoUnificadoCore.Domain.Commands.CargaDiaria
         public int MotivoProtesto { get; set; }
         public int Sequencial { get; set; }
         public int CodigoCartorio { get; set; }
-        public CommandApresentante Apresentante { get; set; }
-        public CommandCredor Credor { get; set; }
-        public List<CommandDevedor> Devedor { get; set; }
+        public GetApresentanteResult Apresentante { get; set; }
+        public GetCredorResult Credor { get; set; }
+        public List<GetDevedorResult> Devedor { get; set; }
 
         public DateTime DataProtocolo { get; set; }
         public DateTime DataProtesto { get; set; }
@@ -34,10 +33,5 @@ namespace BancoUnificadoCore.Domain.Commands.CargaDiaria
         public DateTime DataAcao { get; set; }
 
         public EAcao Acao { get; set; }
-
-        public override bool IsValid()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

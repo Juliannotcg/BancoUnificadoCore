@@ -21,7 +21,7 @@ namespace BancoUnificadoCore.Domain.Handlers
 
         public ICommandResult Handle(CommandCreateApresentante command)
         {
-            command.IsValid();
+            
             var nome = new Nome(command.Nome, command.SobreNome);
             var documento = new Documento(command.TipoDocumento, command.NumeroDocumento);
             var endereco = new Endereco(command.Endereco, command.Bairro, command.CEP, command.Cidade, command.Uf);

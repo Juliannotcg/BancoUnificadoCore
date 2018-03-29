@@ -3,14 +3,12 @@ using BancoUnificadoCore.Domain.Entities;
 using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Shared.Commands;
-using BancoUnificadoCore.Shared.Handlers;
-using FluentValidation.Results;
-using System;
+using Flunt.Notifications;
 using System.Collections.Generic;
 
 namespace BancoUnificadoCore.Domain.Handlers
 {
-    public class CargaDiariaHandler : ICommandHandler<CommandCreateCargaDiaria>
+    public class CargaDiariaHandler : Notifiable, ICommandHandler<CommandCreateCargaDiaria>
     {
         private readonly ICargaDiariaRepositoryDapper _repository;
         private readonly IApresentanteRepositoryDapper _repositoryApresentante;
@@ -23,26 +21,28 @@ namespace BancoUnificadoCore.Domain.Handlers
 
         public ICommandResult Handle(CommandCreateCargaDiaria command)
         {
-            //if (!command.IsValid())
-            //{
-            //   return new CommandCreateCargaDiariaResult(false, command.ValidationResult.Errors);
-            //}
+            command.Validate();
+            if (command.Invalid)
+            {
+                AddNotifications(command);
+                return new CommandCreateCargaDiariaResult(false, "Não foi possível inserir a carga");
+            }
 
             //Gerando Apresentante
-            var nomeApresentante = new Nome(command.Apresentante.Nome, command.Apresentante.SobreNome);
-            var documentoApresentante = new Documento(command.Apresentante.TipoDocumento, command.Apresentante.NumeroDocumento);
-            var enderecoApresentante = new Endereco(command.Apresentante.Endereco, command.Apresentante.Bairro, command.Apresentante.Cidade, command.Apresentante.Uf, command.Apresentante.CEP);
-            var apresentante = new Apresentante(command.Apresentante.CodigoApresentante, nomeApresentante, documentoApresentante, enderecoApresentante);
-
+            var nomeApresentante = new Nome(command.Titulo.Apresentante.Nome, command.Titulo.Apresentante.SobreNome);
+            var documentoApresentante = new Documento(command.Titulo.Apresentante.TipoDocumento, command.Titulo.Apresentante.NumeroDocumento);
+            var enderecoApresentante = new Endereco(command.Titulo.Apresentante.Endereco, command.Titulo.Apresentante.Bairro, command.Titulo.Apresentante.Cidade, command.Titulo.Apresentante.Uf, command.Titulo.Apresentante.CEP);
+            var apresentante = new Apresentante(command.Titulo.Apresentante.CodigoApresentante, nomeApresentante, documentoApresentante, enderecoApresentante);
+            
             //Gerando credor
-            var nomeCredor = new Nome(command.Credor.Nome, command.Credor.SobreNome);
-            var documentoCredor = new Documento(command.Credor.TipoDocumento, command.Credor.NumeroDocumento);
-            var enderecoCredor = new Endereco(command.Credor.Endereco, command.Credor.Bairro, command.Credor.Cidade, command.Credor.Uf, command.Credor.CEP);
+            var nomeCredor = new Nome(command.Titulo.Credor.Nome, command.Titulo.Credor.SobreNome);
+            var documentoCredor = new Documento(command.Titulo.Credor.TipoDocumento, command.Titulo.Credor.NumeroDocumento);
+            var enderecoCredor = new Endereco(command.Titulo.Credor.Endereco, command.Titulo.Credor.Bairro, command.Titulo.Credor.Cidade, command.Titulo.Credor.Uf, command.Titulo.Credor.CEP);
             var credor = new Credor(nomeCredor, documentoCredor, enderecoCredor);
 
             //Gerando devedor
             var devedor = new List<Devedor>();
-            foreach (var item in command.Devedor)
+            foreach (var item in command.Titulo.Devedor)
             {
                 var nomeDevedor = new Nome(item.Nome, item.SobreNome);
                 var documentoDevedor = new Documento(item.TipoDocumento, item.NumeroDocumento);
@@ -52,37 +52,47 @@ namespace BancoUnificadoCore.Domain.Handlers
             }
             
             //Gerando os Entities Titulo
-            var titulo = new Titulo(command.Protocolo,
-                command.DataProtocolo,
-                command.Livro,
-                command.Folha,
-                command.DataProtesto,
-                command.NumeroProtesto,
-                command.DataEmissao,
-                command.DataVencimento,
-                command.Especie,
-                command.Numero,
-                command.NossoNumero,
-                command.Valor,
-                command.Saldo,
-                command.Endosso,
-                command.Aceite,
-                command.FinsFalimentares,
-                command.MotivoProtesto,
-                command.Acao,
-                command.DataAcao,
-                command.Sequencial,
+            var titulo = new Titulo(command.Titulo.Protocolo,
+                command.Titulo.DataProtocolo,
+                command.Titulo.Livro,
+                command.Titulo.Folha,
+                command.Titulo.DataProtesto,
+                command.Titulo.NumeroProtesto,
+                command.Titulo.DataEmissao,
+                command.Titulo.DataVencimento,
+                command.Titulo.Especie,
+                command.Titulo.Numero,
+                command.Titulo.NossoNumero,
+                command.Titulo.Valor,
+                command.Titulo.Saldo,
+                command.Titulo.Endosso,
+                command.Titulo.Aceite,
+                command.Titulo.FinsFalimentares,
+                command.Titulo.MotivoProtesto,
+                command.Titulo.Acao,
+                command.Titulo.DataAcao,
+                command.Titulo.Sequencial,
                 apresentante,
                 credor,
                 devedor);
-
+            
             //Gerando a Entitie CargaDiaria
             var cargaDiaria = new CargaDiaria(titulo);
+
+            //AddNotifications(name, document, email, address, student, subscription, payment);
+            //// Checar as notificações
+            //if (Invalid)
+            //    return new CommandResult(false, "Não foi possível realizar sua assinatura");
 
             //enviando para o repositorio para ser salvo.
             _repository.Save(cargaDiaria);
 
             return new CommandCreateCargaDiariaResult(true, "Carga diária processada com sucesso.");
+        }
+
+        void ICommand.Validate()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

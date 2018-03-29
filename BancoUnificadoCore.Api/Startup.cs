@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO.Compression;
-using System.Linq;
-using System.Threading.Tasks;
-using BancoUnificadoCore.Domain.Handlers;
+﻿using BancoUnificadoCore.Domain.Handlers;
 using BancoUnificadoCore.Domain.Interfaces;
 using BancoUnificadoCore.Infrastructure.Context;
 using BancoUnificadoCore.Infrastructure.Repository.Dapper;
 using BancoUnificadoCore.Infrastructure.Repository.EntityFramework;
-using Elmah.Io.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Microsoft.Owin;
 using Swashbuckle.AspNetCore.Swagger;
+using System.IO.Compression;
 
 namespace BancoUnificadoCore.Api
 {
@@ -90,8 +84,6 @@ namespace BancoUnificadoCore.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "BancoUnificadoCore - V1");
             });
-
-            //app.UseElmahIo("923f4c946cc1435cb0ec665d6e7370b7", new Guid("e42a9995-df89-4d91-a625-ecc57d124004"));
         }
     }
 }

@@ -1,9 +1,12 @@
 ﻿using BancoUnificadoCore.Domain.Entities;
 using BancoUnificadoCore.Domain.Interfaces;
+using BancoUnificadoCore.Domain.Queries.Titulo;
 using BancoUnificadoCore.Infrastructure.Context;
 using Dapper;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
 {
@@ -23,6 +26,38 @@ namespace BancoUnificadoCore.Infrastructure.Repository.Dapper
             _apresentanteRepository = apresentanteRepository;
             _credorRepository = credorRepository;
             _devedorRepository = devedorRepository;
+        }
+
+        public IEnumerable<GetTituloResult> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public GetTituloResult GetByCodigoApresentante(string codigo)
+        {
+            throw new NotImplementedException();
+        }
+
+        public GetTituloResult GetById(Guid Id)
+        {
+            return _context
+                  .Connection
+                  .Query<GetTituloResult>(
+                       "spSelectTituloId",
+                        new { Id = Id },
+                       commandType: CommandType.StoredProcedure)
+                  .FirstOrDefault();
+        }
+
+        public GetTituloResult GetTituloProtocolo(string protocolo)
+        {
+            return _context
+                  .Connection
+                  .Query<GetTituloResult>(
+                       "spSelectTituloProtocolo",
+                        new { Protocolo = protocolo },
+                       commandType: CommandType.StoredProcedure)
+                  .FirstOrDefault();
         }
 
         public void Save(Titulo titulo)

@@ -3,7 +3,7 @@ using System;
 
 namespace BancoUnificadoCore.Domain.Commands
 {
-    public class CommandDevedor : Command
+    public class CommandDevedor 
     {
         public string Nome { get; set; }
         public string SobreNome { get; set; }
@@ -14,10 +14,5 @@ namespace BancoUnificadoCore.Domain.Commands
         public string Cidade { get; set; }
         public string Uf { get; set; }
         public string CEP { get; set; }
-
-        public override bool IsValid()
-        {
-            return true; ;
-        }
     }
 }

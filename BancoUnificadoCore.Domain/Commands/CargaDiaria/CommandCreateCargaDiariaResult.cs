@@ -1,6 +1,4 @@
 ﻿using BancoUnificadoCore.Shared.Commands;
-using FluentValidation.Results;
-using System.Collections.Generic;
 
 namespace BancoUnificadoCore.Domain.Commands
 {

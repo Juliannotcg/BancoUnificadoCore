@@ -12,7 +12,7 @@ namespace BancoUnificadoCore.Infrastructure.Context
         public DbSet<Credor> Credor { get; set; }
         public DbSet<CargaDiaria> CargaDiaria { get; set; }
         public DbSet<Titulo> Titulo { get; set; }
-
+        public DbSet<Usuario> Usuario { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CredorMap());
@@ -20,6 +20,7 @@ namespace BancoUnificadoCore.Infrastructure.Context
             modelBuilder.ApplyConfiguration(new ApresentanteMap());
             modelBuilder.ApplyConfiguration(new CargaDiariaMap());
             modelBuilder.ApplyConfiguration(new TituloMap());
+            modelBuilder.ApplyConfiguration(new UsuarioMap());
 
             base.OnModelCreating(modelBuilder);
         }

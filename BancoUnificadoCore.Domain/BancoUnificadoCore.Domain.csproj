@@ -5,16 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="7.5.2" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BancoUnificadoCore.Shared\BancoUnificadoCore.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Queries\CargaDiaria\" />
-    <Folder Include="Queries\Titulo\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Flunt" Version="1.0.2" />
   </ItemGroup>
 
 </Project>

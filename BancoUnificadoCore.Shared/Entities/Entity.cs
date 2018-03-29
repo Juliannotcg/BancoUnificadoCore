@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Flunt.Notifications;
+using System;
 
 namespace BancoUnificadoCore.Shared.Entities
 {
-    public abstract class Entity 
+    public abstract class Entity : Notifiable
     {
         public Entity()
         {
@@ -10,6 +11,5 @@ namespace BancoUnificadoCore.Shared.Entities
         }
 
         public Guid Id { get; private set; }
-
     }
 }

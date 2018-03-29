@@ -7,7 +7,12 @@ namespace BancoUnificadoCore.Domain.Commands.Titulo
 {
     public class CommandCreateTituloResult : ICommandResult
     {
-        public bool Success { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Message { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public CommandCreateTituloResult(bool success, string message)
+        {
+            Success = success;
+            Message = message;
+        }
+        public bool Success { get; set; }
+        public string Message { get; set; }
     }
 }

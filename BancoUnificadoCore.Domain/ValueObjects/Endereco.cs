@@ -1,9 +1,8 @@
-﻿using BancoUnificadoCore.Shared.ValueObject;
-
+﻿using Flunt.Notifications;
 
 namespace BancoUnificadoCore.Domain.ValueObjects
 {
-    public class Endereco : ValueObject
+    public class Endereco : Notifiable
     {
         public Endereco(string logradouro, string bairro, string cidade, string uf, string cep)
         {

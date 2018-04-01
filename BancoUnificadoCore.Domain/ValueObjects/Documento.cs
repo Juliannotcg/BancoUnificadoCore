@@ -1,10 +1,11 @@
 ﻿using BancoUnificadoCore.Domain.Enums;
 using BancoUnificadoCore.Shared;
-using BancoUnificadoCore.Shared.ValueObject;
+using Flunt.Notifications;
+using Flunt.Validations;
 
 namespace BancoUnificadoCore.Domain.ValueObjects
 {
-    public class Documento : ValueObject
+    public class Documento : Notifiable
     {
         private ValidateCNPJCPF validate;
 
@@ -12,11 +13,15 @@ namespace BancoUnificadoCore.Domain.ValueObjects
         {
             TipoDocumento = tipoDocumento;
             NumeroDocumento = numeroDocumento;
+
+            AddNotifications(new Contract()
+                .IsTrue(ValidarDocumento(NumeroDocumento), "Documento", "Número de documento inválido")
+            );
         }
         public ETipoDocumento TipoDocumento { get; set; }
         public string NumeroDocumento { get; set; }
 
-        public bool ValidarDocumento()
+        public bool ValidarDocumento(string NumeroDocumento)
         {
             validate = new ValidateCNPJCPF();
 

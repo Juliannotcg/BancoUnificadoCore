@@ -13,13 +13,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BancoUnificadoCore.Api\BancoUnificadoCore.Api.csproj" />
-    <ProjectReference Include="..\BancoUnificadoCore.Domain\BancoUnificadoCore.Domain.csproj" />
-    <ProjectReference Include="..\BancoUnificadoCore.Shared\BancoUnificadoCore.Shared.csproj" />
+    <Folder Include="Api\" />
+    <Folder Include="Command\" />
+    <Folder Include="Handlers\" />
+    <Folder Include="Dapper\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dapper\" />
+    <ProjectReference Include="..\BancoUnificadoCore.Domain\BancoUnificadoCore.Domain.csproj" />
+    <ProjectReference Include="..\BancoUnificadoCore.Shared\BancoUnificadoCore.Shared.csproj" />
   </ItemGroup>
 
 </Project>

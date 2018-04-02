@@ -1,6 +1,7 @@
 ﻿using BancoUnificadoCore.Domain.Entities;
 using BancoUnificadoCore.Infrastructure.Class;
 using BancoUnificadoCore.Infrastructure.Maps;
+using Flunt.Notifications;
 using Microsoft.EntityFrameworkCore;
 
 namespace BancoUnificadoCore.Infrastructure.Context
@@ -21,6 +22,7 @@ namespace BancoUnificadoCore.Infrastructure.Context
             modelBuilder.ApplyConfiguration(new CargaDiariaMap());
             modelBuilder.ApplyConfiguration(new TituloMap());
             modelBuilder.ApplyConfiguration(new UsuarioMap());
+            modelBuilder.Ignore<Notification>();
 
             base.OnModelCreating(modelBuilder);
         }

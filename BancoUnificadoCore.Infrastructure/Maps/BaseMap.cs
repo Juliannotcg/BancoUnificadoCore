@@ -9,7 +9,6 @@ namespace BancoUnificadoCore.Infrastructure.Maps
         public virtual void Configure(EntityTypeBuilder<TEntity> builder)
         {
             builder.Ignore(c => c.Notifications);
-            builder.Ignore(c => c.Id);
             builder.Ignore(c => c.Invalid);
             builder.Ignore(c => c.Valid);
 

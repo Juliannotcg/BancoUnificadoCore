@@ -1,6 +1,5 @@
 ﻿using BancoUnificadoCore.Shared;
 using BancoUnificadoCore.Shared.Entities;
-using Flunt.Notifications;
 using Flunt.Validations;
 using System;
 

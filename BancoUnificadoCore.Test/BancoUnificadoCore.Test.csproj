@@ -16,11 +16,11 @@
     <Folder Include="Api\" />
     <Folder Include="Command\" />
     <Folder Include="Handlers\" />
-    <Folder Include="Dapper\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BancoUnificadoCore.Domain\BancoUnificadoCore.Domain.csproj" />
+    <ProjectReference Include="..\BancoUnificadoCore.Infrastructure\BancoUnificadoCore.Infrastructure.csproj" />
     <ProjectReference Include="..\BancoUnificadoCore.Shared\BancoUnificadoCore.Shared.csproj" />
   </ItemGroup>
 

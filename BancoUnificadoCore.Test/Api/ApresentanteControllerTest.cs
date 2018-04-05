@@ -26,7 +26,7 @@ namespace BancoUnificadoCore.Test.Api
 
             // Act
             StringContent content = new StringContent(JsonConvert.SerializeObject(apresentanteGerado), Encoding.UTF8, "application/json");
-            var response = await _client.PostAsync("api/orgaoEmissor", content);
+            var response = await _client.PostAsync("v1/apresentante", content);
             response.EnsureSuccessStatusCode();
             var stringResponse = await response.Content.ReadAsStringAsync();
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK);

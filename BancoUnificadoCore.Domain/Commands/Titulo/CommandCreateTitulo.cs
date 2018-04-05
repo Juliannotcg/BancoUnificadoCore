@@ -41,6 +41,7 @@ namespace BancoUnificadoCore.Domain.Commands.Titulo
             AddNotifications(new Contract()
                .Requires()
                .IsNotNullOrEmpty(Protocolo,"Protocolo", "O protocolo deve ser preenchido.")
+               .HasMaxLen(Protocolo, 10, "Protocolo", "O número do protocolo deve conter até 10 caracteres.")
            );
         }
     }

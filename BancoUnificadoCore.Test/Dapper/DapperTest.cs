@@ -3,30 +3,35 @@ using BancoUnificadoCore.Domain.Enums;
 using BancoUnificadoCore.Domain.ValueObjects;
 using BancoUnificadoCore.Infrastructure.Context;
 using BancoUnificadoCore.Infrastructure.Repository.Dapper;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace BancoUnificadoCore.Test.Dapper
 {
-    [TestClass]
     public class DapperTest
     {
-        [TestMethod]
+        [Fact]
         public void DeveRetornarUmApresentanteQueExiste()
         {
             var ctx = new ContextDapper();
             var repo = new ApresentanteRepositoryDapper(ctx);
-            Assert.AreEqual(repo.CheckApresentante("08816614650"), true);
+            var AprExist = repo.CheckApresentante("08816614650");
+
+            if (AprExist != null)
+                Assert.True(true);
         }
 
-        [TestMethod]
+        [Fact]
         public void DeveRetornarUmApresentanteQueNaoExiste()
         {
             var ctx = new ContextDapper();
             var repo = new ApresentanteRepositoryDapper(ctx);
-            Assert.AreEqual(repo.CheckApresentante("00000000000000"), false);
+            var AprExist = repo.CheckApresentante("0000000000");
+
+            if (AprExist != null)
+                Assert.True(false);
         }
 
-        [TestMethod]
+        [Fact]
         public void SalvarUmApresentanteValido()
         {
             var ctx = new ContextDapper();
@@ -37,8 +42,7 @@ namespace BancoUnificadoCore.Test.Dapper
             var endereco = new Endereco("QNH 05", "QNH", "72130550", "Brasilia", "DF");
             var apresentante = new Apresentante("255", nome, documento, endereco);
             repo.Save(apresentante);
-
-            Assert.IsTrue(true);
+            Assert.True(true);
         }
     }
 }

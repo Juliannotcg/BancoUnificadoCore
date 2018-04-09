@@ -2,21 +2,20 @@
 using BancoUnificadoCore.Test.Helpers.Fakers;
 using Bogus;
 using Civil21.Obito.Tests.Helpers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace BancoUnificadoCore.Test.Api
 {
-    [TestClass]
     public class CargaDiariaControllerTests : BaseWebTest
     {
         private Faker<CommandCreateCargaDiaria> cargaDiaria;
 
-        [TestMethod]
+        [Fact]
         public async Task ReturnCreated()
         {
             // Arrange
@@ -29,7 +28,7 @@ namespace BancoUnificadoCore.Test.Api
             var response = await _client.PostAsync("v1/cargaDiaria", content);
             response.EnsureSuccessStatusCode();
             var stringResponse = await response.Content.ReadAsStringAsync();
-            Assert.IsTrue(response.StatusCode == HttpStatusCode.OK);
+            Assert.True(response.StatusCode == HttpStatusCode.OK);
         }
 
     }

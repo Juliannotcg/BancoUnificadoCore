@@ -1,31 +1,30 @@
 ﻿using BancoUnificadoCore.Domain.Commands;
 using BancoUnificadoCore.Test.Helpers.Fakers;
 using Bogus;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace BancoUnificadoCore.Test.Command
 {
-    [TestClass]
     public class CommandCargaDiariaTests
     {
         private Faker<CommandCreateCargaDiaria> cargaDiaria;
 
-        [TestMethod]
+        [Fact]
         public void CargaDiariaValida()
         {
             cargaDiaria = CargaDiariaCommandFaker.Gerar();
 
             var command = cargaDiaria.Generate();
 
-            Assert.IsTrue(command.Valid);
+            Assert.True(command.Valid);
         }
 
-        [TestMethod]
+        [Fact]
         public void CargaDiariaInvalida()
         {
             var command = new CommandCreateCargaDiaria();
 
-            Assert.IsTrue(command.Invalid);
+            Assert.True(command.Invalid);
         }
     }
 }

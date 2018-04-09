@@ -1,26 +1,25 @@
 ﻿using BancoUnificadoCore.Domain.Commands.Titulo;
 using BancoUnificadoCore.Test.Helpers.Fakers;
 using Bogus;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace BancoUnificadoCore.Test.Command
 {
-    [TestClass]
     public class CommandCreateTituloTests
     {
         private Faker<CommandCreateTitulo> titulo;
 
-        [TestMethod]
+        [Fact]
         public void TituloValido()
         {
             titulo = TituloCommandFaker.Gerar();
 
             var command = titulo.Generate();
 
-            Assert.IsTrue(command.Valid);
+            Assert.True(command.Valid);
         }
 
-        [TestMethod]
+        [Fact]
         public void tituloSobreNomeInvalido()
         {
             titulo = TituloCommandFaker.Gerar();
@@ -29,10 +28,10 @@ namespace BancoUnificadoCore.Test.Command
 
             command.Protocolo = "";
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
 
-        [TestMethod]
+        [Fact]
         public void tituloSobreNomeTamanhoInvalido()
         {
             titulo = TituloCommandFaker.Gerar();
@@ -47,7 +46,7 @@ namespace BancoUnificadoCore.Test.Command
                 i++;
             }
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
     }
 }

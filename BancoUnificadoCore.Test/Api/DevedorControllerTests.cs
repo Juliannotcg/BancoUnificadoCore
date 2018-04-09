@@ -1,21 +1,20 @@
 ﻿using BancoUnificadoCore.Test.Helpers.Fakers;
 using Civil21.Obito.Tests.Helpers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace BancoUnificadoCore.Test.Api
 {
-    [TestClass]
     public class DevedorControllerTests : BaseWebTest
     {
         //TO DO: Implementar o command do devedor
         //private Faker<CommandCreateDevedor> devedor;
 
-        [TestMethod]
+        [Fact]
         public async Task ReturnCreated()
         {
             // Arrange
@@ -28,7 +27,7 @@ namespace BancoUnificadoCore.Test.Api
             var response = await _client.PostAsync("v1/devedor", content);
             response.EnsureSuccessStatusCode();
             var stringResponse = await response.Content.ReadAsStringAsync();
-            Assert.IsTrue(response.StatusCode == HttpStatusCode.OK);
+            Assert.True(response.StatusCode == HttpStatusCode.OK);
         }
     }
 }

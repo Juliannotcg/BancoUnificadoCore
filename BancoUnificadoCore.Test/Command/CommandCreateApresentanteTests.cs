@@ -1,26 +1,25 @@
 ﻿using BancoUnificadoCore.Domain.Commands;
 using BancoUnificadoCore.Test.Helpers.Fakers;
 using Bogus;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace BancoUnificadoCore.Test.Command
 {
-    [TestClass]
     public class CommandCreateApresentanteTests
     {
         private Faker<CommandCreateApresentante> apresentante;
 
-        [TestMethod]
+        [Fact]
         public void ApresentanteValido()
         {
             apresentante = ApresentanteCommandFaker.Gerar();
 
             var command = apresentante.Generate();
 
-            Assert.IsTrue(command.Valid);
+            Assert.True(command.Valid);
         }
 
-        [TestMethod]
+        [Fact]
         public void ApresentanteCodigoInvalido()
         {
             apresentante = ApresentanteCommandFaker.Gerar();
@@ -29,10 +28,10 @@ namespace BancoUnificadoCore.Test.Command
 
             command.CodigoApresentante = "";
             
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
 
-        [TestMethod]
+        [Fact]
         public void ApresentanteCodigoTamanhoInvalido()
         {
             apresentante = ApresentanteCommandFaker.Gerar();
@@ -47,10 +46,10 @@ namespace BancoUnificadoCore.Test.Command
                 i++;
             }
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
 
-        [TestMethod]
+        [Fact]
         public void ApresentanteNomeInvalido()
         {
             apresentante = ApresentanteCommandFaker.Gerar();
@@ -59,10 +58,10 @@ namespace BancoUnificadoCore.Test.Command
 
             command.Nome = "";
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
 
-        [TestMethod]
+        [Fact]
         public void ApresentanteNomeTamanhoInvalido()
         {
             apresentante = ApresentanteCommandFaker.Gerar();
@@ -77,10 +76,10 @@ namespace BancoUnificadoCore.Test.Command
                 i++;
             }
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
 
-        [TestMethod]
+        [Fact]
         public void ApresentanteSobreNomeInvalido()
         {
             apresentante = ApresentanteCommandFaker.Gerar();
@@ -89,10 +88,10 @@ namespace BancoUnificadoCore.Test.Command
 
             command.SobreNome = "";
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
 
-        [TestMethod]
+        [Fact]
         public void ApresentanteSobreNomeTamanhoInvalido()
         {
             apresentante = ApresentanteCommandFaker.Gerar();
@@ -107,7 +106,7 @@ namespace BancoUnificadoCore.Test.Command
                 i++;
             }
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
     }
 }

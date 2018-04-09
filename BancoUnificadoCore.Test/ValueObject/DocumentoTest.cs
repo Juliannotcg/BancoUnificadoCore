@@ -1,10 +1,9 @@
 ﻿using BancoUnificadoCore.Domain.Enums;
 using BancoUnificadoCore.Domain.ValueObjects;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace BancoUnificadoCore.Test.ValueObject
 {
-    [TestClass]
     public class DocumentoTest
     {
         private Documento DocumentoCPFValido;
@@ -20,32 +19,32 @@ namespace BancoUnificadoCore.Test.ValueObject
             DocumentoCNPJInvalido = new Documento(ETipoDocumento.CNPJ, "12345678910");
         }
 
-        [TestMethod]
+        [Fact]
         public void DeveRetornarNotificacaoQuandoCPFnaoValido()
         {
-            Assert.AreEqual(false, DocumentoCPFInvalido.Valid);
-            Assert.AreEqual(1, DocumentoCPFInvalido.Notifications.Count);
+            Assert.Equal(false, DocumentoCPFInvalido.Valid);
+            Assert.Equal(1, DocumentoCPFInvalido.Notifications.Count);
         }
 
-        [TestMethod]
+        [Fact]
         public void NaoDeveRetornarNotificacaoQuandoCPFValido()
         {
-            Assert.AreEqual(true, DocumentoCPFValido.Valid);
-            Assert.AreEqual(0, DocumentoCPFValido.Notifications.Count);
+            Assert.Equal(true, DocumentoCPFValido.Valid);
+            Assert.Equal(0, DocumentoCPFValido.Notifications.Count);
         }
 
-        [TestMethod]
+        [Fact]
         public void DeveRetornarNotificacaoQuandoCNPJnaoValido()
         {
-            Assert.AreEqual(false, DocumentoCNPJInvalido.Valid);
-            Assert.AreEqual(1, DocumentoCPFInvalido.Notifications.Count);
+            Assert.Equal(false, DocumentoCNPJInvalido.Valid);
+            Assert.Equal(1, DocumentoCPFInvalido.Notifications.Count);
         }
 
-        [TestMethod]
+        [Fact]
         public void NaoDeveRetornarNotificacaoQuandoCNPJValido()
         {
-            Assert.AreEqual(true, DocumentoCNPJValido.Valid);
-            Assert.AreEqual(0, DocumentoCNPJValido.Notifications.Count);
+            Assert.Equal(true, DocumentoCNPJValido.Valid);
+            Assert.Equal(0, DocumentoCNPJValido.Notifications.Count);
         }
     }
 }

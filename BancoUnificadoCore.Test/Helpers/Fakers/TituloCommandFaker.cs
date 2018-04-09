@@ -28,7 +28,6 @@ namespace BancoUnificadoCore.Test.Helpers.Fakers
                    .RuleFor(t => t.Sequencial, f => f.Random.Int(1, 15))
                    .RuleFor(t => t.CodigoCartorio, f => f.Random.Int(1, 10))
                    .RuleFor(t => t.Apresentante, f => ApresentanteCommandFaker.Gerar())
-                   .RuleFor(t => t.Apresentante, f => ApresentanteCommandFaker.Gerar())
                    .RuleFor(t => t.Credor, f => CredorCommandFaker.Gerar())
                    .RuleFor(t => t.Devedor, f => DevedorCommandFaker.Gerar().Generate(RetornaQuantidadeDevedores(random)))
                    .RuleFor(t => t.DataProtocolo, f => f.Date.Recent())

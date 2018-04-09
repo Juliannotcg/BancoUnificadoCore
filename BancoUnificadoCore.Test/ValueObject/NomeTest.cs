@@ -1,41 +1,40 @@
 ﻿using BancoUnificadoCore.Domain.ValueObjects;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace BancoUnificadoCore.Test.ValueObject
 {
-    [TestClass]
     public class NomeTests
     {
-        [TestMethod]
+        [Fact]
         public void DeveRetornarNotificacaoQuandoPrimeiroNomeVazio()
         {
             var nome = new Nome("", "Garcia");
-            Assert.AreEqual(false, nome.Valid);
-            Assert.AreEqual(1, nome.Notifications.Count);
+            Assert.Equal(false, nome.Valid);
+            Assert.Equal(1, nome.Notifications.Count);
         }
 
-        [TestMethod]
+        [Fact]
         public void DeveRetornarNotificacaoQuandoPrimeiroNomePequeno()
         {
             var nome = new Nome("as", "Garcia");
-            Assert.AreEqual(false, nome.Valid);
-            Assert.AreEqual(1, nome.Notifications.Count);
+            Assert.Equal(false, nome.Valid);
+            Assert.Equal(1, nome.Notifications.Count);
         }
 
-        [TestMethod]
+        [Fact]
         public void DeveRetornarNotificacaoQuandoSobreNomeVazio()
         {
             var nome = new Nome("Julianno", "");
-            Assert.AreEqual(false, nome.Valid);
-            Assert.AreEqual(1, nome.Notifications.Count);
+            Assert.Equal(false, nome.Valid);
+            Assert.Equal(1, nome.Notifications.Count);
         }
 
-        [TestMethod]
+        [Fact]
         public void DeveRetornarNotificacaoQuandoSobreNomePequeno()
         {
             var nome = new Nome("Julianno", "as");
-            Assert.AreEqual(false, nome.Valid);
-            Assert.AreEqual(1, nome.Notifications.Count);
+            Assert.Equal(false, nome.Valid);
+            Assert.Equal(1, nome.Notifications.Count);
         }
     }
 }

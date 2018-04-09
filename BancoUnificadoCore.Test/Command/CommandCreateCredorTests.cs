@@ -1,26 +1,25 @@
 ﻿using BancoUnificadoCore.Domain.Commands.Credor;
 using BancoUnificadoCore.Test.Helpers.Fakers;
 using Bogus;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace BancoUnificadoCore.Test.Command
 {
-    [TestClass]
     public class CommandCreateCredorTests
     {
         private Faker<CommandCreateCredor> credor;
 
-        [TestMethod]
+        [Fact]
         public void CredorValido()
         {
             credor = CredorCommandFaker.Gerar();
 
             var command = credor.Generate();
 
-            Assert.IsTrue(command.Valid);
+            Assert.True(command.Valid);
         }
 
-        [TestMethod]
+        [Fact]
         public void CredorNumeroDocumentoInvalido()
         {
             credor = CredorCommandFaker.Gerar();
@@ -29,10 +28,10 @@ namespace BancoUnificadoCore.Test.Command
 
             command.NumeroDocumento = "";
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
 
-        [TestMethod]
+        [Fact]
         public void CredorNomeInvalido()
         {
             credor = CredorCommandFaker.Gerar();
@@ -41,10 +40,10 @@ namespace BancoUnificadoCore.Test.Command
 
             command.Nome = "";
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
 
-        [TestMethod]
+        [Fact]
         public void CredorNomeTamanhoInvalido()
         {
             credor = CredorCommandFaker.Gerar();
@@ -59,10 +58,10 @@ namespace BancoUnificadoCore.Test.Command
                 i++;
             }
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
 
-        [TestMethod]
+        [Fact]
         public void CredorSobreNomeInvalido()
         {
             credor = CredorCommandFaker.Gerar();
@@ -71,10 +70,10 @@ namespace BancoUnificadoCore.Test.Command
 
             command.SobreNome = "";
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
 
-        [TestMethod]
+        [Fact]
         public void CredorSobreNomeTamanhoInvalido()
         {
             credor = CredorCommandFaker.Gerar();
@@ -89,7 +88,7 @@ namespace BancoUnificadoCore.Test.Command
                 i++;
             }
 
-            Assert.IsFalse(command.Invalid);
+            Assert.False(command.Invalid);
         }
     }
 }
